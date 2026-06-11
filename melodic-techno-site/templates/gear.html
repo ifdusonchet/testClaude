@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Gear & Setup — {{ config.SITE_NAME }}{% endblock %}
+
+{% block content %}
+
+<!-- ── Page header ──────────────────────────────────────────── -->
+<section class="section section--tight" style="border-bottom: 1px solid var(--bg-border);">
+  <div class="container">
+    <p class="section-label">Gear & Setup</p>
+    <h1 style="margin-bottom:16px;">The hardware that<br>shapes the sound.</h1>
+    <p class="section-lead">
+      No soft synths as primary instruments. Every sound starts with
+      a physical piece of hardware — each chosen for a specific reason
+      and used in a specific way.
+    </p>
+  </div>
+</section>
+
+<!-- ── Studio photo banner ──────────────────────────────────── -->
+<section class="section section--tight">
+  <div class="container">
+    <div class="placeholder-img" style="aspect-ratio: 21/9; border-radius: var(--radius-lg); margin-bottom: 0;">
+      Studio overview photo
+    </div>
+  </div>
+</section>
+
+<!-- ── Gear grid ────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="gear-grid">
+      {% for item in gear %}
+      <div class="gear-card">
+        <div class="gear-card__image">
+          {% if item.image %}
+            <img src="{{ url_for('static', filename='images/gear/' + item.image) }}" alt="{{ item.name }}" />
+          {% else %}
+            <div class="placeholder-img" style="aspect-ratio:4/3;">
+              {{ item.name }} photo
+            </div>
+          {% endif %}
+        </div>
+        <div class="gear-card__body">
+          <p class="gear-card__category">{{ item.category }}</p>
+          <h3 class="gear-card__name">{{ item.name }}</h3>
+          <p class="gear-card__desc">{{ item.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ── Signal chain ──────────────────────────────────────────── -->
+<section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--bg-border); border-bottom: 1px solid var(--bg-border);">
+  <div class="container">
+    <div style="max-width: var(--max-w-text);">
+      <p class="section-label">Signal Chain</p>
+      <h2 style="margin-bottom:24px;">How it all connects.</h2>
+      <p style="color:var(--text-muted); line-height:1.8; margin-bottom:16px;">
+        All hardware synthesisers and drum machines run into a
+        <strong style="color:var(--text);">Focusrite Scarlett interface</strong> via direct outputs.
+        The Elektron Digitakt acts as the MIDI clock master, driving the TR-8S
+        and the two synthesisers in sync.
+      </p>
+      <p style="color:var(--text-muted); line-height:1.8; margin-bottom:16px;">
+        Audio lands in <strong style="color:var(--text);">Ableton Live</strong> on separate tracks.
+        Each instrument gets a dedicated channel with minimal processing —
+        a high-pass filter on everything that isn't the kick or bass,
+        light compression to glue elements together, and the Strymon BigSky
+        on a send return for shared reverb.
+      </p>
+      <p style="color:var(--text-muted); line-height:1.8;">
+        The philosophy is to commit sounds at the hardware stage.
+        Very little is corrected in the DAW. If the Moog sounds off,
+        the knob on the Moog gets turned.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
