@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downloads — Artist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">Artist</a>
+
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html"   >Home</a></li>
+        <li><a href="about.html"  >About</a></li>
+        <li><a href="gear.html"   >Gear</a></li>
+        <li><a href="music.html"  >Music</a></li>
+        <li><a href="cooking.html" >Cooking</a></li>
+        <li><a href="downloads.html" class="active">Downloads</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── Page content ───────────────────────────────────────── -->
+  <main>
+    
+      
+    
+
+    
+<div class="gate-page">
+  <div class="gate-box">
+
+    <div class="gate-box__icon">🔓</div>
+    <h1 class="gate-box__title">Free downloads,<br>one click away.</h1>
+    <p class="gate-box__desc">
+      Leave your email address and get instant access to everything below.
+      No spam — just updates when new content is released.
+    </p>
+
+    <ul class="gate-perks">
+      <li>Dark pad &amp; bass <strong>sound packs</strong> (WAV)</li>
+      <li><strong>MIDI files</strong> for every released track</li>
+      <li>Moog &amp; Jupiter <strong>synth presets</strong></li>
+      <li><strong>Recipe PDFs</strong> — downloadable printable cards</li>
+    </ul>
+
+    <form class="gate-form" method="POST" action="#">
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+        required
+        autocomplete="email"
+      />
+      <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">
+        Get Free Access →
+      </button>
+    </form>
+
+    <p style="font-size:0.78rem; color:var(--text-subtle); margin-top:16px; line-height:1.6;">
+      Your email is stored securely and used only for download access
+      and occasional updates from the artist. Unsubscribe any time.
+    </p>
+
+  </div>
+</div>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-name">Artist</p>
+      <p class="footer-tagline">Melodic Techno · Independent Producer</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="music.html">Music</a>
+        <a href="downloads.html">Downloads</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+  
+
+<div style="
+  position:fixed; bottom:16px; right:16px; z-index:9999;
+  background:#1a6bff; color:#fff; padding:10px 16px;
+  border-radius:6px; font-family:monospace; font-size:12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5); max-width:240px;
+  line-height:1.4;
+">
+  👁 Frontend preview only<br>
+  <span style="opacity:0.8;">Forms &amp; downloads disabled</span>
+</div>
+
+</body>
+</html>
