@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Downloads — {{ config.SITE_NAME }}{% endblock %}
+
+{% block content %}
+<div class="downloads-page">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="downloads-header">
+      <p class="section-label">Downloads</p>
+      <h1 style="margin-bottom:12px;">Everything is yours.</h1>
+      <p style="color:var(--text-muted); max-width:520px; line-height:1.7;">
+        Thank you for signing up. All content below is free to download and
+        use in your own productions. New packs are added regularly — you'll
+        get an email when they arrive.
+      </p>
+    </div>
+
+    <!-- ── Sound Packs ───────────────────────────────────────── -->
+    {% for category_name, items in downloads.items() %}
+    {% if items %}
+    <div class="downloads-category">
+      <h2 class="downloads-category__title">{{ category_name }}</h2>
+      <div class="downloads-grid">
+        {% for item in items %}
+        <div class="download-item">
+          <div class="download-item__icon">{{ item.icon }}</div>
+          <div class="download-item__info">
+            <div class="download-item__name">{{ item.name }}</div>
+            <div class="download-item__meta">{{ item.meta }}</div>
+          </div>
+          {% if item.file %}
+            <a href="{{ url_for('static', filename=item.file) }}"
+               class="btn btn--outline btn--sm"
+               download>
+              ↓
+            </a>
+          {% else %}
+            <span class="btn btn--outline btn--sm" style="opacity:0.35; cursor:not-allowed;">
+              Soon
+            </span>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <div style="border-top: 1px solid var(--bg-border); padding-top: 32px; margin-top: 16px;">
+      <p style="font-size:0.85rem; color:var(--text-subtle); line-height:1.7;">
+        All downloads are free for personal and commercial use.
+        Credit appreciated but not required.
+        New content added regularly — check back or wait for the email.
+      </p>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

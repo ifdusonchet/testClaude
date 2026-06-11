@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Music — {{ config.SITE_NAME }}{% endblock %}
+
+{% block content %}
+
+<!-- ── Page header ──────────────────────────────────────────── -->
+<section class="section section--tight" style="border-bottom: 1px solid var(--bg-border);">
+  <div class="container">
+    <p class="section-label">Music</p>
+    <h1 style="margin-bottom:16px;">Tracks & the stories<br>behind them.</h1>
+    <p class="section-lead">
+      Every track here started as something else. A classical work, a jazz
+      standard, a song with words — then rebuilt from its harmonic skeleton
+      into melodic techno. These notes explain what was taken, what was changed,
+      and why.
+    </p>
+  </div>
+</section>
+
+<!-- ── Track list ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="track-list">
+
+      {% for track in tracks %}
+      <div class="track-item">
+
+        <!-- Video column -->
+        <div>
+          {% if track.youtube_id %}
+            <div class="video-wrapper">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/{{ track.youtube_id }}"
+                title="{{ track.title }}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          {% else %}
+            <div class="placeholder-img" style="aspect-ratio:16/9; border-radius:var(--radius);">
+              Video coming soon
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Info column -->
+        <div>
+          <p class="track-item__meta">
+            <span class="tag">Track {{ loop.index }}</span>
+          </p>
+          <h2 class="track-item__title">{{ track.title }}</h2>
+
+          <p class="track-item__origin">
+            Source material:
+            <strong>{{ track.original_song }}</strong>
+            by {{ track.original_artist }}
+          </p>
+
+          <p class="track-item__process">{{ track.process }}</p>
+
+          <p class="track-item__bpm">{{ track.bpm }} BPM</p>
+
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+            {% for tag in track.tags %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+
+          {% if track.youtube_id %}
+            <div style="margin-top:20px;">
+              <a href="https://www.youtube.com/watch?v={{ track.youtube_id }}"
+                 target="_blank" rel="noopener"
+                 class="btn btn--outline btn--sm">
+                Watch on YouTube ↗
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<!-- ── YouTube CTA ───────────────────────────────────────────── -->
+<section class="section section--tight" style="background: var(--bg-surface); border-top: 1px solid var(--bg-border);">
+  <div class="container" style="text-align:center; max-width:560px;">
+    <p class="section-label" style="text-align:center;">YouTube</p>
+    <h2 style="margin-bottom:16px;">New tracks posted regularly.</h2>
+    <p style="color:var(--text-muted); margin-bottom:28px;">
+      Subscribe on YouTube to be notified when new tracks arrive.
+      All content is free to watch.
+    </p>
+    <a href="https://www.youtube.com" target="_blank" rel="noopener" class="btn btn--primary">
+      Subscribe on YouTube
+    </a>
+  </div>
+</section>
+
+{% endblock %}

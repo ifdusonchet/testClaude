@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — {{ config.SITE_NAME }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body class="admin-page">
+
+  <!-- Header bar -->
+  <div class="admin-header">
+    <div class="admin-header__title">
+      <span>Admin</span> · {{ config.SITE_NAME }}
+    </div>
+    <a href="{{ url_for('admin_logout') }}" class="btn btn--outline btn--sm">Sign out</a>
+  </div>
+
+  <div class="admin-body">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div style="margin-bottom:24px;">
+          {% for category, message in messages %}
+            <div class="flash flash--{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Stats row -->
+    <div class="admin-stats">
+      <div class="admin-stat">
+        <div class="admin-stat__value">{{ subscriber_count }}</div>
+        <div class="admin-stat__label">Subscribers</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat__value">{{ email_logs | length }}</div>
+        <div class="admin-stat__label">Emails Sent</div>
+      </div>
+      <div class="admin-stat">
+        <div class="admin-stat__value">
+          {{ email_logs[0].recipient_count if email_logs else '—' }}
+        </div>
+        <div class="admin-stat__label">Last Send Recipients</div>
+      </div>
+    </div>
+
+    <!-- ── Send Email ──────────────────────────────────────── -->
+    <div class="admin-section">
+      <h2 class="admin-section__title">Send Email to All Subscribers</h2>
+      <form method="POST" action="{{ url_for('admin_send_email') }}" style="max-width:600px;">
+        <div class="form-group">
+          <label for="subject">Subject Line</label>
+          <input type="text" id="subject" name="subject" placeholder="New track out now…" required />
+        </div>
+        <div class="form-group">
+          <label for="body">Message Body</label>
+          <textarea id="body" name="body" placeholder="Write your message here…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary"
+          onclick="return confirm('Send this email to all {{ subscriber_count }} subscriber(s)?')">
+          Send to {{ subscriber_count }} subscriber{{ 's' if subscriber_count != 1 else '' }}
+        </button>
+      </form>
+    </div>
+
+    <!-- ── Subscriber List ────────────────────────────────── -->
+    <div class="admin-section">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <h2 class="admin-section__title" style="margin-bottom:0; padding-bottom:0; border-bottom:none;">
+          Subscriber List
+        </h2>
+        <a href="{{ url_for('admin_export_csv') }}" class="btn btn--outline btn--sm">
+          Export CSV ↓
+        </a>
+      </div>
+
+      {% if subscribers %}
+        <div style="overflow-x:auto;">
+          <table class="subscriber-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Joined</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for sub in subscribers %}
+              <tr>
+                <td style="color:var(--text-subtle);">{{ sub.id }}</td>
+                <td>{{ sub.email }}</td>
+                <td>{{ sub.created_at }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <p style="color:var(--text-subtle); font-size:0.9rem;">
+          No subscribers yet. Share the downloads page to start collecting emails.
+        </p>
+      {% endif %}
+    </div>
+
+    <!-- ── Email Log ──────────────────────────────────────── -->
+    <div class="admin-section">
+      <h2 class="admin-section__title">Email Send Log</h2>
+
+      {% if email_logs %}
+        {% for log in email_logs %}
+        <div class="email-log-item">
+          <div class="email-log-item__subject">{{ log.subject }}</div>
+          <div class="email-log-item__meta">
+            Sent {{ log.sent_at }} · {{ log.recipient_count }} recipient{{ 's' if log.recipient_count != 1 else '' }}
+          </div>
+          <details style="margin-top:10px;">
+            <summary style="font-size:0.8rem; color:var(--text-subtle); cursor:pointer;">View message body</summary>
+            <pre style="margin-top:8px; font-size:0.82rem; color:var(--text-muted); white-space:pre-wrap; font-family:var(--font-sans);">{{ log.body }}</pre>
+          </details>
+        </div>
+        {% endfor %}
+      {% else %}
+        <p style="color:var(--text-subtle); font-size:0.9rem;">
+          No emails sent yet.
+        </p>
+      {% endif %}
+    </div>
+
+  </div><!-- /admin-body -->
+
+</body>
+</html>
