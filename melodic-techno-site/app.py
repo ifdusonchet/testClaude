@@ -124,7 +124,7 @@ TRACKS = [
             "warehouse floor."
         ),
         "bpm": 130,
-        "youtube_id": "",  # replace with actual YouTube video ID
+        "youtube_id": "2KziErGS114",
         "tags": ["melodic", "deep", "classical"],
     },
     {
@@ -138,7 +138,7 @@ TRACKS = [
             "with heavy sidechain compression on the pads."
         ),
         "bpm": 127,
-        "youtube_id": "",
+        "youtube_id": "aQ1P0CQlaAY",
         "tags": ["melodic", "piano", "hypnotic"],
     },
     {
@@ -152,8 +152,30 @@ TRACKS = [
             "saturate the lead until it barely feels electronic."
         ),
         "bpm": 125,
-        "youtube_id": "",
+        "youtube_id": "0rTbk9IGEsk",
         "tags": ["jazz-influenced", "deep", "melodic"],
+    },
+    {
+        # Update this title, original_song, original_artist, process and tags
+        # to match what's in the video youtu.be/xa_eD1TCdOw
+        "title": "Track 4",
+        "original_artist": "—",
+        "original_song": "—",
+        "process": "Add a short note here about the transformation process for this track.",
+        "bpm": 130,
+        "youtube_id": "xa_eD1TCdOw",
+        "tags": ["melodic", "techno"],
+    },
+    {
+        # Update this title, original_song, original_artist, process and tags
+        # to match what's in the video youtu.be/le0Taj6TVeQ
+        "title": "Track 5",
+        "original_artist": "—",
+        "original_song": "—",
+        "process": "Add a short note here about the transformation process for this track.",
+        "bpm": 132,
+        "youtube_id": "le0Taj6TVeQ",
+        "tags": ["melodic", "techno"],
     },
 ]
 

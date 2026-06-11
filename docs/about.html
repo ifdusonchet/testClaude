@@ -128,8 +128,18 @@
 
       <!-- Photo column -->
       <div class="about-photo">
-        <div class="placeholder-img placeholder-img--portrait" style="border-radius:var(--radius-lg); margin-bottom:20px;">
-          Artist photo
+        <!-- Drop artist.jpg into static/images/ and this shows automatically -->
+        <div style="position:relative; margin-bottom:20px;">
+          <img
+            src="static/images/artist.jpg"
+            alt="Artist photo"
+            style="width:100%; border-radius:var(--radius-lg); display:block; object-fit:cover; aspect-ratio:3/4;"
+            onerror="this.style.display='none'; document.getElementById('artist-placeholder').style.display='flex';"
+          />
+          <div id="artist-placeholder" class="placeholder-img placeholder-img--portrait"
+               style="border-radius:var(--radius-lg); display:none;">
+            Artist photo
+          </div>
         </div>
         <div style="background:var(--bg-surface); border:1px solid var(--bg-border); border-radius:var(--radius); padding:20px;">
           <p class="section-label" style="margin-bottom:8px;">At a glance</p>

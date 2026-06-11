@@ -8,6 +8,16 @@
   <div class="hero__bg"></div>
   <div class="hero__grid"></div>
 
+  <!-- Artist photo fades in on the right when artist.jpg is present -->
+  <div class="hero__photo-wrap">
+    <img
+      src="{{ url_for('static', filename='images/artist.jpg') }}"
+      alt="Artist"
+      class="hero__photo"
+      onerror="this.parentElement.style.display='none';"
+    />
+  </div>
+
   <div class="hero__content">
     <p class="hero__eyebrow">Melodic Techno · Independent Producer</p>
     <h1 class="hero__title">

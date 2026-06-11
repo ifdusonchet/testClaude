@@ -45,6 +45,16 @@
   <div class="hero__bg"></div>
   <div class="hero__grid"></div>
 
+  <!-- Artist photo fades in on the right when artist.jpg is present -->
+  <div class="hero__photo-wrap">
+    <img
+      src="static/images/artist.jpg"
+      alt="Artist"
+      class="hero__photo"
+      onerror="this.parentElement.style.display='none';"
+    />
+  </div>
+
   <div class="hero__content">
     <p class="hero__eyebrow">Melodic Techno · Independent Producer</p>
     <h1 class="hero__title">
@@ -88,8 +98,13 @@
       <!-- Video or placeholder -->
       <div>
         
-          <div class="placeholder-img" style="aspect-ratio:16/9;">
-            Video coming soon
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/2KziErGS114"
+              title="Requiem in 128"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
           </div>
         
       </div>
