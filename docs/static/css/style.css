@@ -727,115 +727,181 @@ textarea { min-height: 140px; resize: vertical; }
 .passion-card__text { color: var(--text-muted); font-size: 0.95rem; }
 
 /* ── GEAR ───────────────────────────────────────────────────── */
-.gear-category {
-  padding: 72px 0;
+
+/* Header stats row */
+.gear-header-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.gear-header-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gear-header-stat__value {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.gear-header-stat__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+/* ── Full-width category section ─ */
+.gear-cat {
+  padding: 100px 0;
   border-top: 1px solid var(--bg-border);
 }
-.gear-category--first { border-top: none; padding-top: 64px; }
+.gear-cat--alt { background: var(--bg-surface); }
 
-.gear-category__header { margin-bottom: 40px; }
+/* Category header */
+.gear-cat__hd { margin-bottom: 64px; }
 
-.gear-category__number {
+.gear-cat__num {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+  margin-bottom: 20px;
+}
+
+.gear-cat__title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.0;
+  margin-bottom: 14px;
+}
+
+.gear-cat__tagline {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 36px;
+}
+
+/* Intro text block: bordered left, open right */
+.gear-cat__lead {
+  border-left: 3px solid var(--accent);
+  padding-left: 28px;
+  max-width: 680px;
+}
+.gear-cat__lead p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+.gear-cat__lead p:last-child { margin-bottom: 0; }
+
+/* ── Single-instrument feature (The Brain) ─ */
+.gear-feature {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.gear-feature__role {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.gear-category__title { margin-bottom: 20px; }
+.gear-feature__name {
+  font-size: 1.7rem;
+  line-height: 1.15;
+  padding-top: 16px;
+  border-top: 2px solid var(--accent);
+}
 
-.gear-category__intro {
+.gear-feature__body p {
+  font-size: 1.05rem;
   color: var(--text-muted);
-  font-size: 1.0rem;
-  line-height: 1.85;
-  max-width: var(--max-w-text);
+  line-height: 1.95;
+  margin-bottom: 20px;
+}
+.gear-feature__body p:last-child { margin-bottom: 0; }
+
+/* ── Multi-instrument 2-column grid ─ */
+.gear-grid-instruments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.gear-instr {
+  background: var(--bg);
+  border: 1px solid var(--bg-border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.gear-cat--alt .gear-instr { background: var(--bg-raised); }
+.gear-instr:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.gear-instr__top { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--bg-border); }
+
+.gear-instr__role {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
   margin-bottom: 10px;
 }
 
-/* Single-instrument feature block */
-.gear-solo {
-  background: var(--bg-surface);
-  border: 1px solid var(--bg-border);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius-lg);
-  padding: 40px 48px;
-  max-width: 820px;
-}
+.gear-instr__name { font-size: 1.2rem; }
 
-.gear-solo__name {
-  font-size: 1.4rem;
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--bg-border);
-}
-
-.gear-solo__desc {
-  font-size: 1.0rem;
+.gear-instr__body p {
+  font-size: 0.94rem;
   color: var(--text-muted);
   line-height: 1.85;
   margin-bottom: 14px;
 }
-.gear-solo__desc:last-child { margin-bottom: 0; }
+.gear-instr__body p:last-child { margin-bottom: 0; }
 
-/* Multi-instrument grid */
-.gear-instrument-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-
-.gear-instrument-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--bg-border);
+/* ── Closing thought / outro ─ */
+.gear-cat__outro {
+  margin-top: 72px;
+  max-width: 600px;
+  padding: 36px 40px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(26, 107, 255, 0.18);
   border-radius: var(--radius-lg);
-  padding: 28px 32px;
-  transition: border-color var(--transition);
 }
-.gear-instrument-card:hover { border-color: var(--accent); }
+.gear-cat--alt .gear-cat__outro { background: rgba(26, 107, 255, 0.06); }
 
-.gear-instrument-card__role {
+.gear-cat__outro p {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
-}
-
-.gear-instrument-card__name {
-  font-size: 1.15rem;
-  margin-bottom: 18px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--bg-border);
-}
-
-.gear-instrument-card__desc {
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   color: var(--text-muted);
-  line-height: 1.75;
-  margin-bottom: 10px;
+  line-height: 2.1;
+  margin-bottom: 6px;
 }
-.gear-instrument-card__desc:last-child { margin-bottom: 0; }
-
-/* Category closing thought */
-.gear-category__outro {
-  margin: 0;
-  margin-top: 40px;
-  padding: 28px 32px;
-  border: none;
-  border-left: 2px solid var(--bg-border);
-  max-width: 640px;
-}
-.gear-category__outro p {
-  font-size: 0.92rem;
-  color: var(--text-subtle);
-  line-height: 1.85;
-  font-style: italic;
-  margin-bottom: 8px;
-}
-.gear-category__outro p:last-child { margin-bottom: 0; }
+.gear-cat__outro p:last-child { margin-bottom: 0; }
 
 /* ── MUSIC ──────────────────────────────────────────────────── */
 .track-list { display: flex; flex-direction: column; gap: 48px; }
@@ -1271,8 +1337,11 @@ textarea { min-height: 140px; resize: vertical; }
   .home-hero-layout { grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
   .manifesto-layout { grid-template-columns: 1fr; gap: 40px; }
   .downloads-cta-band { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
-  .gear-instrument-grid { grid-template-columns: 1fr; }
-  .gear-solo { padding: 28px; }
+  .gear-grid-instruments { grid-template-columns: 1fr; }
+  .gear-feature { grid-template-columns: 1fr; gap: 32px; }
+  .gear-cat { padding: 64px 0; }
+  .gear-cat__title { font-size: clamp(2rem, 7vw, 2.8rem); }
+  .gear-cat__outro { padding: 24px 28px; }
 }
 
 @media (max-width: 640px) {
