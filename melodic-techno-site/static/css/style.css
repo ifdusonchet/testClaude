@@ -758,6 +758,33 @@ textarea { min-height: 140px; resize: vertical; }
   color: var(--text-subtle);
 }
 
+/* ── Full-setup banner image ─ */
+.gear-banner-img {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+.gear-banner-placeholder {
+  aspect-ratio: 21 / 9 !important;
+  border-radius: var(--radius-lg);
+  font-size: 0.8rem;
+  text-align: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gear-banner-placeholder code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: var(--bg-raised);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
 /* ── Full-width category section ─ */
 .gear-cat {
   padding: 100px 0;
@@ -765,8 +792,14 @@ textarea { min-height: 140px; resize: vertical; }
 }
 .gear-cat--alt { background: var(--bg-surface); }
 
-/* Category header */
-.gear-cat__hd { margin-bottom: 64px; }
+/* Category header: 2-column (text + photo) */
+.gear-cat__hd {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 72px;
+  align-items: start;
+  margin-bottom: 72px;
+}
 
 .gear-cat__num {
   font-family: var(--font-mono);
@@ -792,11 +825,10 @@ textarea { min-height: 140px; resize: vertical; }
   margin-bottom: 36px;
 }
 
-/* Intro text block: bordered left, open right */
+/* Intro text block: bordered left */
 .gear-cat__lead {
   border-left: 3px solid var(--accent);
   padding-left: 28px;
-  max-width: 680px;
 }
 .gear-cat__lead p {
   font-size: 1.05rem;
@@ -805,6 +837,26 @@ textarea { min-height: 140px; resize: vertical; }
   margin-bottom: 14px;
 }
 .gear-cat__lead p:last-child { margin-bottom: 0; }
+
+/* Category photo (right column of header) */
+.gear-cat__hd-photo { position: sticky; top: 88px; }
+
+.gear-cat__photo-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+  border: 1px solid var(--bg-border);
+}
+
+.gear-cat__photo-placeholder {
+  aspect-ratio: 4 / 3 !important;
+  border-radius: var(--radius-lg);
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.6;
+}
 
 /* ── Single-instrument feature (The Brain) ─ */
 .gear-feature {
@@ -1342,6 +1394,10 @@ textarea { min-height: 140px; resize: vertical; }
   .gear-cat { padding: 64px 0; }
   .gear-cat__title { font-size: clamp(2rem, 7vw, 2.8rem); }
   .gear-cat__outro { padding: 24px 28px; }
+  .gear-cat__hd { grid-template-columns: 1fr; gap: 40px; }
+  .gear-cat__hd-photo { position: static; }
+  .gear-banner-img { aspect-ratio: 16 / 9; }
+  .gear-banner-placeholder { aspect-ratio: 16 / 9 !important; }
 }
 
 @media (max-width: 640px) {

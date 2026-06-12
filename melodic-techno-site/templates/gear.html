@@ -29,26 +29,60 @@
   </div>
 </section>
 
+<!-- ── Full setup overview photo ────────────────────────────── -->
+<section class="section section--tight">
+  <div class="container">
+    {% if gear_banner %}
+      <img
+        src="{{ url_for('static', filename='images/gear/' + gear_banner) }}"
+        alt="Full studio setup"
+        class="gear-banner-img"
+      />
+    {% else %}
+      <div class="placeholder-img gear-banner-placeholder">
+        Full studio setup — drop <code>studio-setup.jpg</code> in <code>static/images/gear/</code>
+        and set <code>GEAR_BANNER_IMAGE = "studio-setup.jpg"</code> in app.py
+      </div>
+    {% endif %}
+  </div>
+</section>
+
 <!-- ── Gear categories — one full-width section each ─────────── -->
 {% for cat in gear_categories %}
 <section class="gear-cat{% if loop.index is even %} gear-cat--alt{% endif %}">
   <div class="container">
 
-    <!-- Category header -->
+    <!-- Category header: text left, photo right -->
     <header class="gear-cat__hd">
-      <p class="gear-cat__num">{{ cat.number }}</p>
-      <h2 class="gear-cat__title">{{ cat.title }}</h2>
-      <p class="gear-cat__tagline">{{ cat.tagline }}</p>
-      {% if cat.intro %}
-      <div class="gear-cat__lead">
-        {% for para in cat.intro.split('\n\n') %}
-          {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
-        {% endfor %}
+      <div class="gear-cat__hd-text">
+        <p class="gear-cat__num">{{ cat.number }}</p>
+        <h2 class="gear-cat__title">{{ cat.title }}</h2>
+        <p class="gear-cat__tagline">{{ cat.tagline }}</p>
+        {% if cat.intro %}
+        <div class="gear-cat__lead">
+          {% for para in cat.intro.split('\n\n') %}
+            {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
-      {% endif %}
+
+      <div class="gear-cat__hd-photo">
+        {% if cat.image %}
+          <img
+            src="{{ url_for('static', filename='images/gear/' + cat.image) }}"
+            alt="{{ cat.title }}"
+            class="gear-cat__photo-img"
+          />
+        {% else %}
+          <div class="placeholder-img gear-cat__photo-placeholder">
+            {{ cat.title }}<br>photo coming soon
+          </div>
+        {% endif %}
+      </div>
     </header>
 
-    <!-- Single instrument: The Brain -->
+    <!-- Single instrument: The Brain (two-column editorial) -->
     {% if cat.instruments|length == 1 %}
     <div class="gear-feature">
       <div class="gear-feature__label">

@@ -48,12 +48,18 @@ db.init_db()
 # Edit these dicts to update the site without touching templates.
 # ══════════════════════════════════════════════════════════════
 
+# Image filenames live in static/images/gear/.
+# Set GEAR_BANNER_IMAGE to "studio-setup.jpg" (or any name) once the photo is ready.
+# Set each category's "image" to "moogs.jpg" etc. to activate the photo.
+GEAR_BANNER_IMAGE = None
+
 GEAR_CATEGORIES = [
     {
         "id": "brain",
         "number": "01",
         "title": "The Brain",
         "tagline": "Akai Force",
+        "image": None,   # e.g. "brain.jpg"
         "intro": None,
         "instruments": [
             {
@@ -82,6 +88,7 @@ GEAR_CATEGORIES = [
         "number": "02",
         "title": "The Moogs",
         "tagline": "Soul, Muscle, and Madness",
+        "image": None,   # e.g. "moogs.jpg"
         "intro": "If the Akai Force is the brain of the setup, the Moogs are undoubtedly its soul.",
         "instruments": [
             {
@@ -134,6 +141,7 @@ GEAR_CATEGORIES = [
         "number": "03",
         "title": "The Greek Gang",
         "tagline": "Dreadbox",
+        "image": None,   # e.g. "greek-gang.jpg"
         "intro": (
             "If the Moogs are refined storytellers, the Dreadbox machines are wild poets.\n\n"
             "Built in Greece and entirely analogue, these synthesizers are simpler than their American cousins. "
@@ -191,6 +199,7 @@ GEAR_CATEGORIES = [
         "number": "04",
         "title": "The Dream Weavers",
         "tagline": "Wavetable Synthesis",
+        "image": None,   # e.g. "dream-weavers.jpg"
         "intro": (
             "If analogue synthesizers are made of electricity and instinct, wavetable synthesizers are built from possibility.\n\n"
             "They bring a modern touch to the studio. Less concerned with recreating the past, they constantly ask "
@@ -270,6 +279,7 @@ GEAR_CATEGORIES = [
         "number": "05",
         "title": "The Korg Tribe",
         "tagline": "The Shape-Shifters",
+        "image": None,   # e.g. "korg-tribe.jpg"
         "intro": (
             "Some instruments find their voice and remain faithful to it for decades. "
             "The Korg tribe prefers transformation.\n\n"
@@ -330,6 +340,7 @@ GEAR_CATEGORIES = [
         "number": "06",
         "title": "The Outlaws",
         "tagline": "The Ones Who Refused to Behave",
+        "image": None,   # e.g. "outlaws.jpg"
         "intro": (
             "Every orchestra has its virtuosos. Every family has its black sheep. These are mine.\n\n"
             "The synthesizers that don't quite belong anywhere else. The rebels, the innovators, the strange "
@@ -687,7 +698,7 @@ def about():
 
 @app.route("/gear")
 def gear():
-    return render_template("gear.html", gear_categories=GEAR_CATEGORIES)
+    return render_template("gear.html", gear_categories=GEAR_CATEGORIES, gear_banner=GEAR_BANNER_IMAGE)
 
 
 @app.route("/music")
