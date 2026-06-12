@@ -1136,6 +1136,16 @@ textarea { min-height: 140px; resize: vertical; }
 
 .gate-form input { text-align: left; }
 
+/* Honeypot — present in the DOM so bots find it, invisible to humans */
+.hp-wrap {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  tab-index: -1;
+}
+
 .downloads-page { padding: 80px 0; }
 
 .downloads-header {

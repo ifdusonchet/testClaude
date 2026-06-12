@@ -10,6 +10,9 @@ To run locally:
 import os
 import csv
 import io
+import hmac
+import hashlib
+import time
 from functools import wraps
 
 from flask import (
@@ -680,6 +683,30 @@ def has_download_access():
     return db.get_subscriber_by_token(token) is not None
 
 
+# ── Bot-protection helpers ────────────────────────────────────
+
+def _make_form_token():
+    """Return a signed timestamp string for the downloads gate form."""
+    ts = str(int(time.time()))
+    key = app.secret_key.encode() if isinstance(app.secret_key, str) else app.secret_key
+    sig = hmac.new(key, ts.encode(), hashlib.sha256).hexdigest()
+    return f"{ts}.{sig}"
+
+
+def _verify_form_token(token, min_seconds=3, max_seconds=3600):
+    """Return True only if the token is valid and was issued 3 s–1 h ago."""
+    try:
+        ts_str, sig = token.rsplit(".", 1)
+        key = app.secret_key.encode() if isinstance(app.secret_key, str) else app.secret_key
+        expected = hmac.new(key, ts_str.encode(), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(sig, expected):
+            return False
+        elapsed = time.time() - int(ts_str)
+        return min_seconds <= elapsed <= max_seconds
+    except Exception:
+        return False
+
+
 # ══════════════════════════════════════════════════════════════
 # PUBLIC ROUTES
 # ══════════════════════════════════════════════════════════════
@@ -714,8 +741,16 @@ def cooking():
 @app.route("/downloads", methods=["GET", "POST"])
 def downloads():
     if request.method == "POST":
-        email = request.form.get("email", "").strip().lower()
+        # Honeypot: bots fill this, humans never see it
+        if request.form.get("website", ""):
+            return redirect(url_for("downloads"))
 
+        # Timing: reject if form was submitted too fast or token is missing/forged
+        if not _verify_form_token(request.form.get("form_token", "")):
+            flash("Submission rejected. Please wait a moment and try again.", "error")
+            return redirect(url_for("downloads"))
+
+        email = request.form.get("email", "").strip().lower()
         if not email or "@" not in email:
             flash("Please enter a valid email address.", "error")
             return redirect(url_for("downloads"))
@@ -731,7 +766,7 @@ def downloads():
     if has_download_access():
         return render_template("downloads.html", downloads=DOWNLOADS)
 
-    return render_template("downloads_gate.html")
+    return render_template("downloads_gate.html", form_token=_make_form_token())
 
 
 @app.route("/static/downloads/recipes/<path:filename>")

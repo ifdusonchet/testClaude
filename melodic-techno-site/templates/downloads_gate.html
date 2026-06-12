@@ -20,6 +20,21 @@
     </ul>
 
     <form class="gate-form" method="POST" action="{{ url_for('downloads') }}">
+      <!-- Signed timestamp: rejects bots that submit instantly -->
+      <input type="hidden" name="form_token" value="{{ form_token }}">
+
+      <!-- Honeypot: invisible to humans, bots tend to fill it -->
+      <div class="hp-wrap" aria-hidden="true">
+        <label for="hp_website">Website</label>
+        <input
+          type="text"
+          id="hp_website"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+        >
+      </div>
+
       <input
         type="email"
         name="email"
