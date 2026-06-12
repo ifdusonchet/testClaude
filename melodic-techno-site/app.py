@@ -48,77 +48,364 @@ db.init_db()
 # Edit these dicts to update the site without touching templates.
 # ══════════════════════════════════════════════════════════════
 
-GEAR = [
+GEAR_CATEGORIES = [
     {
-        "category": "Synthesizer",
-        "name": "Moog Subsequent 37",
-        "description": (
-            "The backbone of the low end. Its ladder filter produces the "
-            "dark, resonant bass that defines the sound — warm yet menacing, "
-            "capable of the deep sub-rumble that melodic techno demands."
-        ),
-        "image": None,
+        "id": "brain",
+        "number": "01",
+        "title": "The Brain",
+        "tagline": "Akai Force",
+        "intro": None,
+        "instruments": [
+            {
+                "name": "Akai Force",
+                "role": "The Conductor",
+                "description": (
+                    "At the centre of my setup sits the Akai Force: the conductor of this electronic orchestra.\n\n"
+                    "It is far more than a sampler. It is my drum machine, MIDI sequencer, performance hub, and "
+                    "creative sketchbook. Every riff begins with human hands on real instruments. I play melodies "
+                    "and basslines live on each synthesizer, capturing the MIDI notes in the Force so they can be "
+                    "replayed while I continue shaping the sound directly from the hardware.\n\n"
+                    "This allows me to focus on what I love most: opening filters, twisting knobs, adding movement "
+                    "and imperfections, and letting each machine reveal its personality in real time.\n\n"
+                    "The Akai Force is also remarkably flexible. Through MIDI and USB, it connects and synchronises "
+                    "more than twenty synthesizers and drum machines, keeping the entire setup breathing together as "
+                    "one living instrument.\n\n"
+                    "In many ways, it is the brain of the studio: remembering what has been played, coordinating "
+                    "every voice, and leaving my hands free to transform performance into something spontaneous and alive."
+                ),
+            },
+        ],
+        "outro": None,
     },
     {
-        "category": "Synthesizer",
-        "name": "Roland Jupiter-Xm",
-        "description": (
-            "Handles the layered pad textures and wide, atmospheric chords. "
-            "The classic Roland sound engine gives an unmistakable "
-            "analogue warmth to evolving chord progressions."
-        ),
-        "image": None,
+        "id": "moogs",
+        "number": "02",
+        "title": "The Moogs",
+        "tagline": "Soul, Muscle, and Madness",
+        "intro": "If the Akai Force is the brain of the setup, the Moogs are undoubtedly its soul.",
+        "instruments": [
+            {
+                "name": "Moog Subsequent 37",
+                "role": "The Charmer",
+                "description": (
+                    "The Subsequent 37 has earned its reputation as one of the most iconic bass machines ever built, "
+                    "and deservedly so. Its low end is thick, warm, and impossible to ignore. But reducing it to a "
+                    "bass synthesizer misses half of its personality.\n\n"
+                    "Beyond the growling basslines lies an extraordinary lead instrument. With its expressive "
+                    "modulation possibilities and evolving movements, it can sing, whisper, or scream. There is "
+                    "something unmistakably \"Moog\" about its sound. Even in the busiest mix, the Subsequent 37 "
+                    "somehow finds a way to make itself heard."
+                ),
+            },
+            {
+                "name": "Moog Minitaur",
+                "role": "The Pocket Giant",
+                "description": (
+                    "The Minitaur is often introduced as a dedicated bass synth. That's true — but only if you "
+                    "lack imagination.\n\n"
+                    "Hidden behind its compact chassis is a remarkably expressive instrument. Its two oscillators, "
+                    "envelopes, and LFO allow it to produce far more than earth-shaking lows. It excels at simple "
+                    "yet unforgettable melodies that carry a surprising emotional weight.\n\n"
+                    "Built like a tank and barely larger than a pair of hands, the Minitaur has become one of my "
+                    "most faithful companions. It travels with me to every live performance, proving that greatness "
+                    "doesn't always require a large footprint."
+                ),
+            },
+            {
+                "name": "Moog Matriarch",
+                "role": "The Queen",
+                "description": (
+                    "Part synthesizer, part instrument of chaos, part work of art.\n\n"
+                    "A four-note paraphonic, semi-modular monster, the Matriarch refuses the comfort of certainty. "
+                    "There are no presets to save. Every patch exists only in the moment it is created. Every sound "
+                    "is temporary. Every performance becomes unique.\n\n"
+                    "It demands your full attention and rewards experimentation with textures and colours unlike "
+                    "anything else in my studio. Its sound is vast, organic, and alive. Once the Matriarch enters "
+                    "a mix, it rarely settles into the background. It becomes part of the track's identity.\n\n"
+                    "Many synthesizers strive for perfection. The Matriarch strives for character. And for that "
+                    "reason, it remains one of the most inspiring instruments I have ever played."
+                ),
+            },
+        ],
+        "outro": None,
     },
     {
-        "category": "Drum Machine",
-        "name": "Roland TR-8S",
-        "description": (
-            "The rhythmic engine. Punchy kicks with long tails, crisp "
-            "hi-hats and that classic analogue snare crack. "
-            "Pattern-based workflow keeps everything spontaneous and alive."
+        "id": "dreadbox",
+        "number": "03",
+        "title": "The Greek Gang",
+        "tagline": "Dreadbox",
+        "intro": (
+            "If the Moogs are refined storytellers, the Dreadbox machines are wild poets.\n\n"
+            "Built in Greece and entirely analogue, these synthesizers are simpler than their American cousins. "
+            "They offer less control, fewer safety nets, and little interest in behaving properly. Their oscillators "
+            "drift. Their resonance screams. Their imperfections refuse to be corrected.\n\n"
+            "And that is precisely why I love them. They don't whisper, \"Listen to me.\" They shout, \"We exist!\""
         ),
-        "image": None,
+        "instruments": [
+            {
+                "name": "Dreadbox Erebus V2",
+                "role": "The Beast",
+                "description": (
+                    "The Erebus V2 is simplicity itself: two oscillators, a handful of classic waveforms, a creamy "
+                    "analogue filter, and a wonderfully unstable analogue delay. On paper, it shouldn't be extraordinary.\n\n"
+                    "In reality, it shakes walls.\n\n"
+                    "Its bass can rattle the furniture, and when its filter begins to cry, even the neighbours become "
+                    "unwilling participants in the performance. There is something primal about the Erebus V2. "
+                    "It doesn't strive for sophistication. It aims directly for your instincts."
+                ),
+            },
+            {
+                "name": "Dreadbox Erebus V3",
+                "role": "The Mad Scientist",
+                "description": (
+                    "The Erebus V3 takes everything its older brother does and asks: what happens if we push things further?\n\n"
+                    "A third oscillator enters the picture, capable of acting as an additional LFO. Ring modulation "
+                    "and cross-modulation open the doors to stranger territories, while frequency modulation introduces "
+                    "metallic textures and unexpected harmonics.\n\n"
+                    "The V2 is raw power. The V3 is experimentation. It invites accidents, rewards curiosity, and "
+                    "constantly tempts you to turn one knob too far just to discover what lies beyond."
+                ),
+            },
+            {
+                "name": "Dreadbox Typhon",
+                "role": "The Dream Painter",
+                "description": (
+                    "The smallest member of the family, yet perhaps the most surprising.\n\n"
+                    "Unlike the Erebus siblings, the Typhon isn't obsessed with brute force. Its two analogue "
+                    "oscillators remain wonderfully alive, but they surrender part of their control to simplicity. "
+                    "You don't sculpt every detail. Instead, you collaborate with the machine and let it guide you "
+                    "toward places you hadn't planned to visit.\n\n"
+                    "And then come the effects. Its extraordinary digital effects engine transforms sounds into "
+                    "landscapes. Delays dissolve into mist, reverbs stretch beyond the horizon, and modulation "
+                    "paints movement and colour onto every note.\n\n"
+                    "The Erebus machines scream. The Typhon dreams. Sometimes, listening to it feels less like "
+                    "hearing a synthesizer and more like standing in front of an Impressionist painting — where "
+                    "details disappear, emotions take over, and what matters most is not what you see, but what you feel."
+                ),
+            },
+        ],
+        "outro": None,
     },
     {
-        "category": "Drum Machine",
-        "name": "Elektron Digitakt",
-        "description": (
-            "Sample sequencer and MIDI brain. Used to trigger synths, "
-            "sequence breaks and add field-recorded textures that blur "
-            "the line between electronic and organic."
+        "id": "wavetable",
+        "number": "04",
+        "title": "The Dream Weavers",
+        "tagline": "Wavetable Synthesis",
+        "intro": (
+            "If analogue synthesizers are made of electricity and instinct, wavetable synthesizers are built from possibility.\n\n"
+            "They bring a modern touch to the studio. Less concerned with recreating the past, they constantly ask "
+            "what sound could become next. Their landscapes evolve, morph, and shimmer. They can imitate reality, "
+            "but they truly come alive when they create something that has never existed before."
         ),
-        "image": None,
+        "instruments": [
+            {
+                "name": "ASM Hydrasynth",
+                "role": "The Explorer",
+                "description": (
+                    "Some synthesizers hide their power behind endless menus. The Hydrasynth does the opposite.\n\n"
+                    "It may be one of the deepest instruments in my studio, yet somehow it remains one of the easiest "
+                    "to understand. Its workflow invites experimentation. One idea naturally leads to another. Complex "
+                    "modulation becomes intuitive, and happy accidents happen constantly.\n\n"
+                    "It feels less like programming a machine and more like exploring an unknown world with an excellent "
+                    "map in your hands. Every time I sit in front of it, I discover a new path I had somehow missed before."
+                ),
+            },
+            {
+                "name": "Modal Argon8",
+                "role": "The Poet",
+                "description": (
+                    "The first thing you notice is the keyboard. It is simply magnificent. Responsive, expressive, "
+                    "and inviting — it makes you want to play long after the sound has faded away. And fortunately, "
+                    "the sound itself lives up to the touch.\n\n"
+                    "The Argon8 has a unique elegance. Its wavetable engine produces tones that feel polished without "
+                    "losing warmth. It excels at pads that breathe, evolving textures, and melodies that seem "
+                    "suspended in mid-air.\n\n"
+                    "If the Hydrasynth is the explorer, the Argon8 is the poet. It reminds you that technology can still be graceful."
+                ),
+            },
+            {
+                "name": "Waldorf Iridium Core",
+                "role": "The Alchemist",
+                "description": (
+                    "Some synthesizers specialise. The Iridium refuses.\n\n"
+                    "Wavetable synthesis. Granular. Sampling. Virtual analogue. Resonators. It is less an instrument "
+                    "and more a laboratory for sound. The possibilities are almost overwhelming.\n\n"
+                    "It can become nearly anything you imagine, but it asks something in return: patience, curiosity, "
+                    "and the willingness to lose yourself for hours while searching for a sound that has never existed "
+                    "before. This is not a synthesizer for shortcuts. It is a creation machine."
+                ),
+            },
+            {
+                "name": "Novation Peak",
+                "role": "The Gentleman",
+                "description": (
+                    "I love all my synthesizers. But the Peak occupies a special place in my heart.\n\n"
+                    "It combines the richness and unpredictability that I adore in analogue instruments with the "
+                    "flexibility of modern digital design. Almost one knob per function — no fighting with menus, "
+                    "no interruption between inspiration and creation.\n\n"
+                    "And then there is the reverb. It doesn't simply place sounds into a space. It sings. Pads bloom "
+                    "into cathedrals, leads float above the mix, and simple notes suddenly acquire emotion. Elegant "
+                    "without losing its soul.\n\n"
+                    "If I had to choose one synthesizer outside of my beloved Moogs, this might be the one."
+                ),
+            },
+            {
+                "name": "Roland Gaia 2",
+                "role": "The Hidden Treasure",
+                "description": (
+                    "The Gaia 2 is often underestimated. At first glance, it seems simple. Approachable. Almost modest.\n\n"
+                    "But spend time with it and another personality slowly emerges. Beneath its friendly surface lies "
+                    "an instrument capable of surprising complexity. Wavetables sit beside virtual analogue engines. "
+                    "Modulations create movement and life. Familiar sounds evolve into unexpected textures.\n\n"
+                    "The Gaia never demands attention. Instead, it quietly whispers: \"Have you tried this?\" "
+                    "And before long, an hour has disappeared. Sometimes the most rewarding instruments are the ones "
+                    "that gently invite you to keep discovering."
+                ),
+            },
+        ],
+        "outro": None,
     },
     {
-        "category": "Effects",
-        "name": "Strymon BigSky",
-        "description": (
-            "Reverb that turns a single piano note into a vast cavernous "
-            "space. The 'Hall' and 'Bloom' algorithms are in constant use — "
-            "they are the source of the signature atmospheric depth."
+        "id": "korg",
+        "number": "05",
+        "title": "The Korg Tribe",
+        "tagline": "The Shape-Shifters",
+        "intro": (
+            "Some instruments find their voice and remain faithful to it for decades. "
+            "The Korg tribe prefers transformation.\n\n"
+            "These synthesizers are restless creatures. They evolve, mutate, and challenge the idea that an "
+            "instrument should have a single identity. They ask questions rather than provide answers: what if "
+            "a sequence could become a landscape? What if FM synthesis could finally become musical instead of mathematical?"
         ),
-        "image": None,
+        "instruments": [
+            {
+                "name": "Korg Wavestate",
+                "role": "The Storyteller",
+                "description": (
+                    "The Wavestate doesn't simply play notes. It tells stories.\n\n"
+                    "Built around the idea of wave sequencing, it constantly rearranges itself. Samples evolve, "
+                    "rhythms shift, textures drift in and out of focus. A patch is never truly static. It breathes.\n\n"
+                    "Press a key and what begins as a piano may become a choir, then dissolve into percussion before "
+                    "returning as something entirely unexpected. The Wavestate rewards patience and imagination. "
+                    "Sometimes cinematic. Sometimes nostalgic. Always moving."
+                ),
+            },
+            {
+                "name": "Korg Modwave",
+                "role": "The Surfer",
+                "description": (
+                    "The Modwave takes the world of wavetables and injects it with pure energy.\n\n"
+                    "If the Wavestate tells stories, the Modwave rides waves. Its sounds twist and morph "
+                    "continuously, moving between aggression and beauty with astonishing ease. It excels at modern "
+                    "textures, evolving leads, and animated timbres that never seem to settle in one place.\n\n"
+                    "Push it gently and it shimmers. Push it harder and it becomes wild. "
+                    "The Modwave reminds me that movement itself can be musical."
+                ),
+            },
+            {
+                "name": "Korg Opsix",
+                "role": "The Translator",
+                "description": (
+                    "For decades, FM synthesis had a reputation: powerful, complex, unforgiving. "
+                    "The Opsix changes that story.\n\n"
+                    "It takes one of the most intimidating forms of synthesis ever created and translates it into "
+                    "something human. Suddenly, bells, electric pianos, metallic textures, crystalline pads, and "
+                    "impossible harmonics become invitations rather than puzzles.\n\n"
+                    "There is still enormous depth beneath the surface, but the fear is gone. The Opsix proves "
+                    "that complexity does not have to be complicated. Sometimes all it takes is the right guide "
+                    "to reveal the beauty hidden behind mathematics."
+                ),
+            },
+        ],
+        "outro": (
+            "Together, the Korg tribe reminds me that music is never fixed.\n\n"
+            "A melody can become a rhythm. A rhythm can become a texture. A texture can become an emotion. "
+            "Everything can transform into something else.\n\n"
+            "And perhaps that is what creativity truly is: not inventing from nothing, but discovering "
+            "what something else could become."
+        ),
     },
     {
-        "category": "Sequencer / Sampler",
-        "name": "Akai Force",
-        "description": (
-            "The brain of every live performance. The Force replaces the "
-            "traditional DAW entirely — tracks are sequenced, launched, and "
-            "mixed here in real time. It is the reason every track feels "
-            "performed rather than arranged."
+        "id": "outlaws",
+        "number": "06",
+        "title": "The Outlaws",
+        "tagline": "The Ones Who Refused to Behave",
+        "intro": (
+            "Every orchestra has its virtuosos. Every family has its black sheep. These are mine.\n\n"
+            "The synthesizers that don't quite belong anywhere else. The rebels, the innovators, the strange "
+            "little machines built by dreamers who decided that the established rules of synthesis were merely suggestions.\n\n"
+            "Sometimes they are brilliant. Sometimes they are infuriating. They are never boring."
         ),
-        "image": None,
-    },
-    {
-        "category": "Software",
-        "name": "Ableton Live 12",
-        "description": (
-            "Recording, arrangement and mixing hub. Hardware runs into "
-            "Ableton via audio interface; the DAW is used for arrangement "
-            "and subtle processing, not as a composition crutch."
+        "instruments": [
+            {
+                "name": "Norand Mono",
+                "role": "The French Revolutionary",
+                "description": (
+                    "This was my very first synthesizer. My gateway drug.\n\n"
+                    "Born from French imagination, the Norand Mono answered an ambitious question: what if a modern "
+                    "synthesizer could offer deep modulation without screens, menus, or endless scrolling?\n\n"
+                    "The answer was elegance. Every knob is surrounded by LEDs that quietly tell you where you stand. "
+                    "Everything remains immediate, tactile, alive.\n\n"
+                    "At first glance, it almost resembles a Roland TB-303: compact, simple, approachable. Don't be "
+                    "fooled. Behind that minimalist interface hides a monster of modulation. It taught me that the "
+                    "deepest instruments don't always look complicated."
+                ),
+            },
+            {
+                "name": "The Handmade Beast",
+                "role": "When Only Sound Matters",
+                "description": (
+                    "At some point, practicality gave way to obsession.\n\n"
+                    "Inside a Moog enclosure, I assembled an unlikely creature: a Dreadbox Hades living side by "
+                    "side with a Behringer Brain. No concern for appearances. No concern for conventions. Only sound.\n\n"
+                    "And what a sound it is. Aggressive, metallic, unapologetic. Less synthesizer. "
+                    "More electric guitar forged from voltage. It doesn't ask for refinement. It demands attitude."
+                ),
+            },
+            {
+                "name": "Behringer Edge",
+                "role": "The Primitive Force",
+                "description": (
+                    "Do not try to control it.\n\n"
+                    "The Edge has its own agenda. It grooves. It pulses. It spits out rhythms that feel older than "
+                    "melody itself. Primitive and hypnotic, it doesn't politely wait for instructions.\n\n"
+                    "Instead, it presents an idea and dares you to build an entire track around it. "
+                    "Fight it, and you lose. Dance with it, and suddenly everything falls into place. "
+                    "This is techno in its purest form."
+                ),
+            },
+            {
+                "name": "Arturia MicroFreak & MiniFreak",
+                "role": "The Mad Inventors",
+                "description": (
+                    "If there is a glimpse of the future hidden in my studio, these two might be it.\n\n"
+                    "Unlike almost anything else, they don't expose every parameter and don't pretend to satisfy "
+                    "the purists. Instead, they ask a simple question: what do you want to hear?\n\n"
+                    "Granular textures. Virtual analogue warmth. Speech-like articulations. Metallic chaos. "
+                    "Delicate pads. They borrow the most inspiring ideas from the modular world and make them "
+                    "accessible without requiring a wall full of patch cables. Curious. Creative. Playful."
+                ),
+            },
+            {
+                "name": "East Beast & West Pest",
+                "role": "The Brothers at War",
+                "description": (
+                    "These two little semi-modular twins tell the entire story of synthesizer history.\n\n"
+                    "The East Beast follows the East Coast philosophy: oscillators, filters, subtraction. Sculpting "
+                    "sound by removing frequencies until what remains feels right.\n\n"
+                    "The West Pest walks another path. Wavefolders. Complex harmonics. Addition and transformation. "
+                    "Rather than carving away, it encourages sound to evolve into stranger and stranger forms.\n\n"
+                    "Two philosophies. Two brothers. One eternal argument. But feeding the Moog Matriarch through "
+                    "the West Pest's wavefolder opens doors to textures neither instrument could discover alone. "
+                    "Sometimes the most beautiful sounds emerge not from choosing sides, but from letting opposites collaborate."
+                ),
+            },
+        ],
+        "outro": (
+            "And perhaps that is the true lesson of this entire studio.\n\n"
+            "Analogue and digital. Precision and chaos. Tradition and innovation. East and West.\n\n"
+            "None of them are enemies. Music begins when they learn to speak to one another."
         ),
-        "image": None,
     },
 ]
 
@@ -400,7 +687,7 @@ def about():
 
 @app.route("/gear")
 def gear():
-    return render_template("gear.html", gear=GEAR)
+    return render_template("gear.html", gear_categories=GEAR_CATEGORIES)
 
 
 @app.route("/music")

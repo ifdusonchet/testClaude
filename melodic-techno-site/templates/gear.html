@@ -7,73 +7,109 @@
 <section class="section section--tight" style="border-bottom: 1px solid var(--bg-border);">
   <div class="container">
     <p class="section-label">Gear & Setup</p>
-    <h1 style="margin-bottom:16px;">The hardware that<br>shapes the sound.</h1>
+    <h1 style="margin-bottom:16px;">Twenty instruments.<br>One voice.</h1>
     <p class="section-lead">
-      No soft synths as primary instruments. Every sound starts with
-      a physical piece of hardware — each chosen for a specific reason
-      and used in a specific way.
+      No soft synths as primary instruments. Every sound starts with a physical piece of hardware —
+      six families, twenty machines, one shared language. This is the orchestra.
     </p>
-  </div>
-</section>
-
-<!-- ── Studio photo banner ──────────────────────────────────── -->
-<section class="section section--tight">
-  <div class="container">
-    <div class="placeholder-img" style="aspect-ratio: 21/9; border-radius: var(--radius-lg); margin-bottom: 0;">
-      Studio overview photo
+    <div style="display:flex; gap:32px; margin-top:32px; flex-wrap:wrap;">
+      <div>
+        <p style="font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-subtle); margin-bottom:4px;">Categories</p>
+        <p style="font-family:var(--font-mono); font-size:1.6rem; font-weight:700; color:var(--accent);">6</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-subtle); margin-bottom:4px;">Instruments</p>
+        <p style="font-family:var(--font-mono); font-size:1.6rem; font-weight:700; color:var(--accent);">20+</p>
+      </div>
+      <div>
+        <p style="font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-subtle); margin-bottom:4px;">Philosophy</p>
+        <p style="font-family:var(--font-mono); font-size:1.6rem; font-weight:700; color:var(--accent);">100% Hardware</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Gear grid ────────────────────────────────────────────── -->
-<section class="section">
-  <div class="container">
-    <div class="gear-grid">
-      {% for item in gear %}
-      <div class="gear-card">
-        <div class="gear-card__image">
-          {% if item.image %}
-            <img src="{{ url_for('static', filename='images/gear/' + item.image) }}" alt="{{ item.name }}" />
-          {% else %}
-            <div class="placeholder-img" style="aspect-ratio:4/3;">
-              {{ item.name }} photo
-            </div>
+<!-- ── Gear categories ───────────────────────────────────────── -->
+<div class="container">
+  {% for cat in gear_categories %}
+  <div class="gear-category{% if loop.first %} gear-category--first{% endif %}">
+
+    <!-- Category header -->
+    <div class="gear-category__header">
+      <p class="gear-category__number">{{ cat.number }} — {{ cat.tagline }}</p>
+      <h2 class="gear-category__title">{{ cat.title }}</h2>
+      {% if cat.intro %}
+        {% for para in cat.intro.split('\n\n') %}
+          {% if para.strip() %}
+          <p class="gear-category__intro">{{ para.strip() }}</p>
           {% endif %}
-        </div>
-        <div class="gear-card__body">
-          <p class="gear-card__category">{{ item.category }}</p>
-          <h3 class="gear-card__name">{{ item.name }}</h3>
-          <p class="gear-card__desc">{{ item.description }}</p>
-        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <!-- Single instrument (The Brain) -->
+    {% if cat.instruments|length == 1 %}
+    <div class="gear-solo">
+      <p class="gear-instrument-card__role">{{ cat.instruments[0].role }}</p>
+      <h3 class="gear-solo__name">{{ cat.instruments[0].name }}</h3>
+      {% for para in cat.instruments[0].description.split('\n\n') %}
+        {% if para.strip() %}
+        <p class="gear-solo__desc">{{ para.strip() }}</p>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Multiple instruments -->
+    {% else %}
+    <div class="gear-instrument-grid">
+      {% for instr in cat.instruments %}
+      <div class="gear-instrument-card">
+        <p class="gear-instrument-card__role">{{ instr.role }}</p>
+        <h3 class="gear-instrument-card__name">{{ instr.name }}</h3>
+        {% for para in instr.description.split('\n\n') %}
+          {% if para.strip() %}
+          <p class="gear-instrument-card__desc">{{ para.strip() }}</p>
+          {% endif %}
+        {% endfor %}
       </div>
       {% endfor %}
     </div>
+    {% endif %}
+
+    <!-- Category outro -->
+    {% if cat.outro %}
+    <blockquote class="gear-category__outro">
+      {% for para in cat.outro.split('\n\n') %}
+        {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+      {% endfor %}
+    </blockquote>
+    {% endif %}
+
   </div>
-</section>
+  {% endfor %}
+</div>
 
 <!-- ── Signal chain ──────────────────────────────────────────── -->
-<section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--bg-border); border-bottom: 1px solid var(--bg-border);">
+<section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--bg-border); margin-top: 80px;">
   <div class="container">
     <div style="max-width: var(--max-w-text);">
       <p class="section-label">Signal Chain</p>
       <h2 style="margin-bottom:24px;">How it all connects.</h2>
       <p style="color:var(--text-muted); line-height:1.8; margin-bottom:16px;">
-        All hardware synthesisers and drum machines run into a
-        <strong style="color:var(--text);">Focusrite Scarlett interface</strong> via direct outputs.
-        The Elektron Digitakt acts as the MIDI clock master, driving the TR-8S
-        and the two synthesisers in sync.
+        At the heart of the setup, the <strong style="color:var(--text);">Akai Force</strong> acts as
+        both the performance hub and MIDI brain. Every synthesizer connects to it via MIDI and USB,
+        staying in perfect sync throughout a session.
       </p>
       <p style="color:var(--text-muted); line-height:1.8; margin-bottom:16px;">
-        Audio lands in <strong style="color:var(--text);">Ableton Live</strong> on separate tracks.
-        Each instrument gets a dedicated channel with minimal processing —
-        a high-pass filter on everything that isn't the kick or bass,
-        light compression to glue elements together, and the Strymon BigSky
-        on a send return for shared reverb.
+        All hardware runs into a <strong style="color:var(--text);">Focusrite interface</strong> via
+        direct outputs, with audio landing in <strong style="color:var(--text);">Ableton Live</strong>
+        on separate tracks. Each instrument gets a dedicated channel with minimal processing —
+        sounds are committed at the hardware stage. If something needs adjusting, the knob on
+        the synthesizer gets turned, not the plugin.
       </p>
       <p style="color:var(--text-muted); line-height:1.8;">
-        The philosophy is to commit sounds at the hardware stage.
-        Very little is corrected in the DAW. If the Moog sounds off,
-        the knob on the Moog gets turned.
+        The philosophy is simple: no soft synths as primary instruments, no shortcuts, no fixing it
+        in the mix. What you hear in the recordings is what was played — raw, live, and real.
       </p>
     </div>
   </div>
