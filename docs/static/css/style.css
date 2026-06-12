@@ -921,6 +921,39 @@ textarea { min-height: 140px; resize: vertical; }
   color: var(--accent);
 }
 
+/* Lead text: blue accent line on the RIGHT — sits in left column, reads toward the photo */
+.gear-narrative__lead {
+  border-right: 3px solid var(--accent);
+  padding-right: 28px;
+}
+.gear-narrative__lead p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.95;
+  margin-bottom: 16px;
+}
+.gear-narrative__lead p:last-child { margin-bottom: 0; }
+
+/* Outro: full-width shaded box below the 2-column layout */
+.gear-narrative__outro {
+  margin-top: 56px;
+  padding: 36px 40px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(26, 107, 255, 0.18);
+  border-radius: var(--radius-lg);
+}
+.gear-narrative--alt .gear-narrative__outro {
+  background: rgba(26, 107, 255, 0.06);
+}
+.gear-narrative__outro p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 10px;
+}
+.gear-narrative__outro p:last-child { margin-bottom: 0; }
+
 /* ── Full-width category section ─ */
 .gear-cat {
   padding: 100px 0;

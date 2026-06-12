@@ -144,12 +144,14 @@
 <!-- ── The Live Set ──────────────────────────────────────────── -->
 <section class="gear-narrative gear-narrative--alt">
   <div class="container">
+
+    <!-- 2-column: lead text (right-border) + sticky photo -->
     <div class="gear-narrative__layout">
       <div class="gear-narrative__text">
         <p class="section-label">The Live Set</p>
         <h2 class="gear-narrative__title">{{ live_set.title }}</h2>
-        <div class="gear-narrative__prose">
-          {% for para in live_set.text.split('\n\n') %}
+        <div class="gear-narrative__lead">
+          {% for para in live_set.text_lead.split('\n\n') %}
             {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
           {% endfor %}
         </div>
@@ -169,6 +171,14 @@
         {% endif %}
       </div>
     </div>
+
+    <!-- Poetic closing — full-width shaded box -->
+    <div class="gear-narrative__outro">
+      {% for para in live_set.text_outro.split('\n\n') %}
+        {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+      {% endfor %}
+    </div>
+
   </div>
 </section>
 

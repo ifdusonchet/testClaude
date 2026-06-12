@@ -86,7 +86,8 @@ STUDIO_SECTION = {
 LIVE_SET_SECTION = {
     "title": "Reducing an Orchestra to Its Essence",
     "image": None,   # e.g. "live-set.jpg"
-    "text": (
+    # text_lead: practical setup — rendered with a right-side blue accent line
+    "text_lead": (
         "There is, of course, one practical problem with building an orchestra of more than twenty synthesizers:\n\n"
         "You can't fit it into the back of a car.\n\n"
         "So every live performance begins with the same question:\n\n"
@@ -98,7 +99,10 @@ LIVE_SET_SECTION = {
         "shape the sounds in real time — opening filters, adding resonance, introducing movement, and responding "
         "to the energy of the audience.\n\n"
         "The voices that stay behind in the studio aren't forgotten. Their parts are carefully recorded as audio "
-        "tracks inside the MPC, preserving the textures and atmospheres that helped shape each piece.\n\n"
+        "tracks inside the MPC, preserving the textures and atmospheres that helped shape each piece."
+    ),
+    # text_outro: poetic closing — rendered in a shaded accent box below
+    "text_outro": (
         "The result sits somewhere between preparation and improvisation.\n\n"
         "Some machines speak directly from the stage.\n\n"
         "Others return as memories captured in sound.\n\n"
