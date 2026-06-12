@@ -13,7 +13,7 @@ import shutil
 # ── Setup env before importing the app ───────────────────────
 os.environ.setdefault("SECRET_KEY", "static-build-key")
 os.environ.setdefault("ADMIN_PASSWORD", "unused")
-os.environ.setdefault("SITE_NAME", "Artist")
+os.environ.setdefault("SITE_NAME", "TheFAB")
 
 import app as flask_app
 

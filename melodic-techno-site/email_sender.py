@@ -18,7 +18,7 @@ def send_newsletter(subject: str, body: str, recipients: list[str]) -> tuple[boo
     smtp_port = int(os.environ.get("SMTP_PORT", 587))
     smtp_user = os.environ.get("SMTP_USER", "")
     smtp_password = os.environ.get("SMTP_PASSWORD", "")
-    from_name = os.environ.get("EMAIL_FROM_NAME", "Artist")
+    from_name = os.environ.get("EMAIL_FROM_NAME", "TheFAB")
 
     if not smtp_user or not smtp_password:
         return False, "SMTP credentials not configured in .env"
