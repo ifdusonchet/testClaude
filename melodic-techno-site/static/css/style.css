@@ -921,10 +921,10 @@ textarea { min-height: 140px; resize: vertical; }
   color: var(--accent);
 }
 
-/* Lead text: blue accent line on the RIGHT — sits in left column, reads toward the photo */
+/* Lead text: blue accent line on the LEFT — frames the opening question */
 .gear-narrative__lead {
-  border-right: 3px solid var(--accent);
-  padding-right: 28px;
+  border-left: 3px solid var(--accent);
+  padding-left: 28px;
 }
 .gear-narrative__lead p {
   font-size: 1rem;
@@ -934,23 +934,21 @@ textarea { min-height: 140px; resize: vertical; }
 }
 .gear-narrative__lead p:last-child { margin-bottom: 0; }
 
-/* Outro: full-width shaded box below the 2-column layout */
+/* Outro: full-width card matching .gear-instr style — blue top accent, bordered box */
 .gear-narrative__outro {
   margin-top: 56px;
-  padding: 36px 40px;
-  background: var(--accent-dim);
-  border: 1px solid rgba(26, 107, 255, 0.18);
+  background: var(--bg-raised);
+  border: 1px solid var(--bg-border);
+  border-top: 3px solid var(--accent);
   border-radius: var(--radius-lg);
-}
-.gear-narrative--alt .gear-narrative__outro {
-  background: rgba(26, 107, 255, 0.06);
+  padding: 36px 40px;
 }
 .gear-narrative__outro p {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.9;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 .gear-narrative__outro p:last-child { margin-bottom: 0; }
 
