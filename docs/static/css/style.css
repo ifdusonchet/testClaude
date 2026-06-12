@@ -32,6 +32,36 @@
   --transition: 0.2s ease;
 }
 
+/* ── Light mode overrides ───────────────────────────────────── */
+[data-theme="light"] {
+  --bg:          #f4f4f4;
+  --bg-surface:  #ffffff;
+  --bg-raised:   #e8e8e8;
+  --bg-border:   #d0d0d0;
+  --text:        #0a0a0a;
+  --text-muted:  #3a3a3a;
+  --text-subtle: #888888;
+  --accent:      #1a6bff;
+  --accent-hover:#0050e0;
+  --accent-dim:  rgba(26, 107, 255, 0.08);
+  --accent-glow: rgba(26, 107, 255, 0.22);
+  --warm-surface: #f5eeea;
+}
+
+/* Headings use electric blue in light mode */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 { color: var(--accent); }
+
+/* Nav surface */
+[data-theme="light"] .site-header {
+  background: rgba(244, 244, 244, 0.94);
+}
+[data-theme="light"] .nav-links {
+  background: rgba(244, 244, 244, 0.98);
+}
+
 /* ── Reset ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -118,6 +148,12 @@ ul, ol { padding-left: 1.4em; }
 }
 .nav-logo:hover { color: var(--accent); }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -135,6 +171,29 @@ ul, ol { padding-left: 1.4em; }
 .nav-links a:hover,
 .nav-links a.active { color: var(--text); }
 .nav-links a.active { border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color var(--transition), border-color var(--transition);
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle svg { display: block; }
+
+/* Show sun in dark mode, moon in light mode */
+.theme-toggle__moon { display: none; }
+[data-theme="light"] .theme-toggle__sun  { display: none; }
+[data-theme="light"] .theme-toggle__moon { display: block; }
 
 /* Hamburger */
 .nav-toggle {
@@ -1451,6 +1510,7 @@ textarea { min-height: 140px; resize: vertical; }
     border-bottom: 1px solid var(--bg-border);
     padding: 16px 0;
   }
+  [data-theme="light"] .nav-links { background: rgba(244,244,244,0.98); }
   .nav-links.is-open { display: flex; }
   .nav-links li a {
     display: block;

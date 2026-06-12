@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% block title %}{{ config.SITE_NAME }}{% endblock %}</title>
+  <!-- Apply saved theme before CSS paints to avoid flash -->
+  <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -17,18 +19,32 @@
     <nav class="nav-inner">
       <a href="{{ url_for('home') }}" class="nav-logo">{{ config.SITE_NAME }}</a>
 
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="{{ url_for('home') }}"   {% if request.endpoint == 'home'    %}class="active"{% endif %}>Home</a></li>
+          <li><a href="{{ url_for('about') }}"  {% if request.endpoint == 'about'   %}class="active"{% endif %}>About</a></li>
+          <li><a href="{{ url_for('gear') }}"   {% if request.endpoint == 'gear'    %}class="active"{% endif %}>Gear</a></li>
+          <li><a href="{{ url_for('music') }}"  {% if request.endpoint == 'music'   %}class="active"{% endif %}>Music</a></li>
+          <li><a href="{{ url_for('cooking') }}" {% if request.endpoint == 'cooking' %}class="active"{% endif %}>Cooking</a></li>
+          <li><a href="{{ url_for('downloads') }}" {% if request.endpoint in ('downloads','downloads_gate') %}class="active"{% endif %}>Downloads</a></li>
+        </ul>
 
-      <ul class="nav-links">
-        <li><a href="{{ url_for('home') }}"   {% if request.endpoint == 'home'    %}class="active"{% endif %}>Home</a></li>
-        <li><a href="{{ url_for('about') }}"  {% if request.endpoint == 'about'   %}class="active"{% endif %}>About</a></li>
-        <li><a href="{{ url_for('gear') }}"   {% if request.endpoint == 'gear'    %}class="active"{% endif %}>Gear</a></li>
-        <li><a href="{{ url_for('music') }}"  {% if request.endpoint == 'music'   %}class="active"{% endif %}>Music</a></li>
-        <li><a href="{{ url_for('cooking') }}" {% if request.endpoint == 'cooking' %}class="active"{% endif %}>Cooking</a></li>
-        <li><a href="{{ url_for('downloads') }}" {% if request.endpoint in ('downloads','downloads_gate') %}class="active"{% endif %}>Downloads</a></li>
-      </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+          <!-- Sun: shown in dark mode → click to go light -->
+          <svg class="theme-toggle__sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <!-- Moon: shown in light mode → click to go dark -->
+          <svg class="theme-toggle__moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
