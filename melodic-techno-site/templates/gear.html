@@ -29,21 +29,34 @@
   </div>
 </section>
 
-<!-- ── Full setup overview photo ────────────────────────────── -->
-<section class="section section--tight">
+<!-- ── The Studio ────────────────────────────────────────────── -->
+<section class="gear-narrative">
   <div class="container">
-    {% if gear_banner %}
-      <img
-        src="{{ url_for('static', filename='images/gear/' + gear_banner) }}"
-        alt="Full studio setup"
-        class="gear-banner-img"
-      />
-    {% else %}
-      <div class="placeholder-img gear-banner-placeholder">
-        Full studio setup — drop <code>studio-setup.jpg</code> in <code>static/images/gear/</code>
-        and set <code>GEAR_BANNER_IMAGE = "studio-setup.jpg"</code> in app.py
+    <div class="gear-narrative__layout">
+      <div class="gear-narrative__text">
+        <p class="section-label">The Studio</p>
+        <h2 class="gear-narrative__title">{{ studio.title }}</h2>
+        <div class="gear-narrative__prose">
+          {% for para in studio.text.split('\n\n') %}
+            {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+          {% endfor %}
+        </div>
       </div>
-    {% endif %}
+      <div class="gear-narrative__photo">
+        {% if studio.image %}
+          <img
+            src="{{ url_for('static', filename='images/gear/' + studio.image) }}"
+            alt="The Studio"
+            class="gear-narrative__img"
+          />
+        {% else %}
+          <div class="placeholder-img gear-narrative__placeholder">
+            Studio photo coming soon<br>
+            <span>Add <code>studio-setup.jpg</code> to <code>static/images/gear/</code></span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -82,7 +95,7 @@
       </div>
     </header>
 
-    <!-- Single instrument: The Brain (two-column editorial) -->
+    <!-- Single instrument: The Brain -->
     {% if cat.instruments|length == 1 %}
     <div class="gear-feature">
       <div class="gear-feature__label">
@@ -128,5 +141,35 @@
 </section>
 {% endfor %}
 
+<!-- ── The Live Set ──────────────────────────────────────────── -->
+<section class="gear-narrative gear-narrative--alt">
+  <div class="container">
+    <div class="gear-narrative__layout">
+      <div class="gear-narrative__text">
+        <p class="section-label">The Live Set</p>
+        <h2 class="gear-narrative__title">{{ live_set.title }}</h2>
+        <div class="gear-narrative__prose">
+          {% for para in live_set.text.split('\n\n') %}
+            {% if para.strip() %}<p>{{ para.strip() }}</p>{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="gear-narrative__photo">
+        {% if live_set.image %}
+          <img
+            src="{{ url_for('static', filename='images/gear/' + live_set.image) }}"
+            alt="The Live Set"
+            class="gear-narrative__img"
+          />
+        {% else %}
+          <div class="placeholder-img gear-narrative__placeholder">
+            Live set photo coming soon<br>
+            <span>Add <code>live-set.jpg</code> to <code>static/images/gear/</code></span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock %}

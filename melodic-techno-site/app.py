@@ -51,11 +51,66 @@ db.init_db()
 # Edit these dicts to update the site without touching templates.
 # ══════════════════════════════════════════════════════════════
 
-# Image filenames live in static/images/gear/.
-# Set GEAR_BANNER_IMAGE to "studio-setup.jpg" (or any name) once the photo is ready.
-# Set each category's "image" to "moogs.jpg" etc. to activate the photo.
-GEAR_BANNER_IMAGE = None
+# Gear page narrative sections.
+# Set "image" to a filename in static/images/gear/ once photos are ready.
 
+STUDIO_SECTION = {
+    "title": "Built on Curiosity",
+    "image": None,   # e.g. "studio-setup.jpg"
+    "text": (
+        "People often ask me if I had a master plan when building this studio.\n\n"
+        "The answer is simple:\n\n"
+        "Absolutely not.\n\n"
+        "There was no spreadsheet, no five-year strategy, no dream shopping list pinned to the wall. "
+        "This studio was built piece by piece, one late-night discovery at a time. I spent countless "
+        "hours browsing second-hand websites, music forums, and classified ads, waiting for a machine "
+        "to catch my eye and spark that familiar feeling of excitement.\n\n"
+        "Sometimes it was the sound.\n\n"
+        "Sometimes the design.\n\n"
+        "Sometimes simply the promise that it could teach me something new.\n\n"
+        "If a synthesizer made me curious enough to imagine the music we could create together, "
+        "it found its way into the studio.\n\n"
+        "Over the years, those chance encounters grew into the collection you see today.\n\n"
+        "At the centre of everything sits the Akai Force, placed directly in front of me like the "
+        "captain at the helm of a ship. Around it live the instruments I return to most often: "
+        "the Moogs, the Dreadbox machines, the companions whose controls have become second nature to my hands.\n\n"
+        "The rest of the family waits patiently on a rack to my right.\n\n"
+        "A glance away.\n\n"
+        "Ready whenever inspiration decides to take an unexpected turn.\n\n"
+        "This studio isn't a museum built to impress.\n\n"
+        "It's a living workspace. A playground. A laboratory of happy accidents.\n\n"
+        "Every instrument here earned its place by making me feel something."
+    ),
+}
+
+LIVE_SET_SECTION = {
+    "title": "Reducing an Orchestra to Its Essence",
+    "image": None,   # e.g. "live-set.jpg"
+    "text": (
+        "There is, of course, one practical problem with building an orchestra of more than twenty synthesizers:\n\n"
+        "You can't fit it into the back of a car.\n\n"
+        "So every live performance begins with the same question:\n\n"
+        "\"If I could only bring the essentials, what would they be?\"\n\n"
+        "Packed inside a single flight case is my travelling studio: an Akai MPC One, a Dreadbox Erebus, "
+        "the faithful Moog Minitaur, and two additional compact synthesizers chosen according to the mood of the set.\n\n"
+        "The MPC One becomes the conductor.\n\n"
+        "It sends MIDI sequences to the instruments travelling with me, allowing them to perform live while I "
+        "shape the sounds in real time — opening filters, adding resonance, introducing movement, and responding "
+        "to the energy of the audience.\n\n"
+        "The voices that stay behind in the studio aren't forgotten. Their parts are carefully recorded as audio "
+        "tracks inside the MPC, preserving the textures and atmospheres that helped shape each piece.\n\n"
+        "The result sits somewhere between preparation and improvisation.\n\n"
+        "Some machines speak directly from the stage.\n\n"
+        "Others return as memories captured in sound.\n\n"
+        "But there is never a simple press of a play button.\n\n"
+        "Every performance evolves. Knobs are turned. Mistakes happen. Unexpected moments appear and disappear forever.\n\n"
+        "The tracks breathe differently each night.\n\n"
+        "Because behind all these machines, there is still a human being trying to transform electricity into emotion — "
+        "and inviting a room full of strangers to share in the experience."
+    ),
+}
+
+# Set each category's "image" to a filename (e.g. "moogs.jpg") to activate it.
 GEAR_CATEGORIES = [
     {
         "id": "brain",
@@ -725,7 +780,12 @@ def about():
 
 @app.route("/gear")
 def gear():
-    return render_template("gear.html", gear_categories=GEAR_CATEGORIES, gear_banner=GEAR_BANNER_IMAGE)
+    return render_template(
+        "gear.html",
+        gear_categories=GEAR_CATEGORIES,
+        studio=STUDIO_SECTION,
+        live_set=LIVE_SET_SECTION,
+    )
 
 
 @app.route("/music")
