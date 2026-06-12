@@ -29,7 +29,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-change-me")
 
 # Expose config values to all Jinja2 templates
-app.config["SITE_NAME"] = os.environ.get("SITE_NAME", "Artist")
+app.config["SITE_NAME"] = os.environ.get("SITE_NAME", "TheFAB")
 
 # Hash the admin password once at startup so we never store it in plain text
 _raw_admin_pw = os.environ.get("ADMIN_PASSWORD", "admin")
@@ -113,69 +113,86 @@ GEAR = [
 
 TRACKS = [
     {
-        "title": "Requiem in 128",
-        "original_artist": "Wolfgang Amadeus Mozart",
-        "original_song": "Requiem in D minor, K. 626",
+        "title": "Matriarche Requiem",
+        "original_artist": "Original composition",
+        "original_song": "Moog Matriarch · vocal laments",
         "process": (
-            "The choir lines from Mozart's Lacrimosa were re-harmonised on "
-            "the Jupiter-Xm, stripped of their orchestral context and laid over "
-            "a slow, relentless kick pattern at 130 BPM. The result keeps the "
-            "grief of the original but replaces the church with a dark "
-            "warehouse floor."
+            "A heartbeat echoes through the darkness, steady and inevitable. "
+            "Around it, the Moog Matriarch breathes and growls, weaving mournful "
+            "melodies that feel both human and machine. Male and female voices rise "
+            "like distant laments, answering one another in a timeless complaint — "
+            "part prayer, part farewell. Matriarche Requiem is a descent into the "
+            "shadows, where grief becomes rhythm and sorrow finds its place on the dancefloor."
         ),
         "bpm": 130,
         "youtube_id": "2KziErGS114",
-        "tags": ["melodic", "deep", "classical"],
+        "tags": ["melodic", "dark", "vocal"],
     },
     {
-        "title": "Intermezzo",
-        "original_artist": "Johannes Brahms",
-        "original_song": "Intermezzo in A major, Op. 118 No. 2",
+        "title": "Jeunesse lève-toi !",
+        "original_artist": "Damien Saez",
+        "original_song": "Jeunesse lève-toi",
         "process": (
-            "Brahms' most intimate piano work, played at half its original "
-            "tempo on the Moog and transposed down a fifth. The melody "
-            "becomes something slow and hypnotic against a kick at 127 BPM "
-            "with heavy sidechain compression on the pads."
+            "Born from the fire and poetry of Damien Saez's words, Jeunesse lève-toi ! "
+            "is a call to those who refuse resignation. It speaks to the restless hearts "
+            "that still believe the world can be changed, that cynicism is not destiny, "
+            "and that hope is an act of courage. Driven by the energy of techno and "
+            "carried by the urgency of its message, this track is an invitation to rise, "
+            "to dream, and to leave a mark brighter than indifference."
+        ),
+        "bpm": 133,
+        "youtube_id": "aQ1P0CQlaAY",
+        "tags": ["melodic", "anthem", "vocal"],
+    },
+    {
+        "title": "Tee",
+        "original_artist": "Lomepal",
+        "original_song": "Tee",
+        "process": (
+            "Inspired by Lomepal's lyrics, Tee captures the vertigo of losing control "
+            "of your own trajectory. Like a golf ball balanced on its tee, there is that "
+            "suspended moment before impact: fragile, exposed, powerless. You know the hit "
+            "is coming, but not where it will send you. Carried by tense rhythms and an "
+            "underlying sense of urgency, the track explores the chaos of being pushed by "
+            "forces stronger than yourself, while desperately trying to remain whole."
         ),
         "bpm": 127,
-        "youtube_id": "aQ1P0CQlaAY",
-        "tags": ["melodic", "piano", "hypnotic"],
+        "youtube_id": "0rTbk9IGEsk",
+        "tags": ["melodic", "hypnotic", "french"],
     },
     {
-        "title": "Blue in Green (Dub)",
-        "original_artist": "Miles Davis",
-        "original_song": "Blue in Green",
+        "title": "Revolution",
+        "original_artist": "Multi-source collage",
+        "original_song": "Fragments of multiple songs",
         "process": (
-            "The original trumpet melody rewritten for Moog lead. "
-            "The jazz harmony was preserved but the time signature flattened "
-            "into a four-four grid at 125 BPM. Deep reverb and tape-delay "
-            "saturate the lead until it barely feels electronic."
+            "A collision of voices, rhythms, and memories, Revolution blends fragments "
+            "of different songs into a relentless drum and bass journey. Tribal percussion "
+            "drives the pulse forward, raw and instinctive, while the lyrics echo a single "
+            "message: the world does not change through silence. Energetic and untamed, "
+            "this track is less a song than a gathering cry — an invitation to move, to "
+            "resist, and to remember that every revolution begins with a heartbeat shared by many."
+        ),
+        "bpm": 135,
+        "youtube_id": "xa_eD1TCdOw",
+        "tags": ["drum & bass", "tribal", "political"],
+    },
+    {
+        "title": "Wicked Game",
+        "original_artist": "Chris Isaak",
+        "original_song": "Wicked Game",
+        "process": (
+            "Inspired by the haunting lyrics of Chris Isaak's Wicked Game, this track "
+            "explores the irresistible pull of an impossible love. It is the story of "
+            "knowing the danger and stepping closer anyway — of a fragile creature drawn "
+            "to something infinitely more powerful than itself. Like a rabbit falling in "
+            "love with a T-Rex, it is beautiful, absurd, tender, and doomed from the very "
+            "beginning. Wrapped in melancholic melodies and hypnotic rhythms, Wicked Game "
+            "dances in that thin space where desire overrules reason and the heart willingly "
+            "enters a battle it cannot win."
         ),
         "bpm": 125,
-        "youtube_id": "0rTbk9IGEsk",
-        "tags": ["jazz-influenced", "deep", "melodic"],
-    },
-    {
-        # Update this title, original_song, original_artist, process and tags
-        # to match what's in the video youtu.be/xa_eD1TCdOw
-        "title": "Track 4",
-        "original_artist": "—",
-        "original_song": "—",
-        "process": "Add a short note here about the transformation process for this track.",
-        "bpm": 130,
-        "youtube_id": "xa_eD1TCdOw",
-        "tags": ["melodic", "techno"],
-    },
-    {
-        # Update this title, original_song, original_artist, process and tags
-        # to match what's in the video youtu.be/le0Taj6TVeQ
-        "title": "Track 5",
-        "original_artist": "—",
-        "original_song": "—",
-        "process": "Add a short note here about the transformation process for this track.",
-        "bpm": 132,
         "youtube_id": "le0Taj6TVeQ",
-        "tags": ["melodic", "techno"],
+        "tags": ["melodic", "melancholic", "cinematic"],
     },
 ]
 
