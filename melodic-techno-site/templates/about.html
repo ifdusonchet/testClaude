@@ -186,7 +186,7 @@
           Music never left me. It was always there in the background.
           Eventually, listening was no longer enough.
         </p>
-        <p class="about-hero__text" style="font-family:var(--font-mono); font-size:1rem; color:var(--text); line-height:2;">
+        <p class="manifesto-lines">
           I wanted to compose.<br>
           I wanted to create.<br>
           I wanted to tell my own stories through sound.
@@ -229,24 +229,24 @@
         </p>
 
         <!-- Cooking sign-off -->
-        <div style="background:var(--bg-surface); border-left:3px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; padding:24px 28px; margin:32px 0;">
-          <p class="about-hero__text" style="margin-bottom:12px;">
+        <div class="callout callout--neutral">
+          <p>
             And because creativity doesn't stop at music, you'll find another passion
-            of mine throughout this site: <strong style="color:var(--text);">cooking</strong>.
+            of mine throughout this site: <strong>cooking</strong>.
           </p>
-          <p class="about-hero__text" style="margin-bottom:12px;">
+          <p>
             The patience required to shape a bass sound for an hour isn't so different
             from letting a sauce simmer all afternoon. Neither can be rushed.
             Both reward care, experimentation, and sharing.
           </p>
-          <p class="about-hero__text" style="margin-bottom:0;">
+          <p>
             Here you'll find a selection of my favourite original recipes as free
             downloadable PDFs, alongside free samples and sounds for fellow producers.
           </p>
         </div>
 
         <!-- Closing lines -->
-        <p class="about-hero__text" style="font-family:var(--font-mono); font-size:0.95rem; color:var(--text); line-height:2.2; margin-top:8px;">
+        <p class="manifesto-lines">
           Take what inspires you.<br>
           Listen loudly.<br>
           Cook generously.
@@ -280,28 +280,28 @@
           </div>
         </div>
 
-        <div style="background:var(--bg-surface); border:1px solid var(--bg-border); border-radius:var(--radius); padding:20px;">
-          <p class="section-label" style="margin-bottom:8px;">At a glance</p>
-          <div style="display:flex; flex-direction:column; gap:12px;">
+        <div class="about-sidebar">
+          <p class="section-label" style="margin-bottom:12px;">At a glance</p>
+          <div class="about-sidebar__row">
             <div>
-              <div style="font-size:0.72rem; font-family:var(--font-mono); color:var(--text-subtle); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:2px;">Artist</div>
-              <div style="font-size:0.9rem; color:var(--text-muted);">TheFAB</div>
+              <div class="about-sidebar__label">Artist</div>
+              <div class="about-sidebar__value">TheFAB</div>
             </div>
             <div>
-              <div style="font-size:0.72rem; font-family:var(--font-mono); color:var(--text-subtle); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:2px;">Genre</div>
-              <div style="font-size:0.9rem; color:var(--text-muted);">Melodic Techno</div>
+              <div class="about-sidebar__label">Genre</div>
+              <div class="about-sidebar__value">Melodic Techno</div>
             </div>
             <div>
-              <div style="font-size:0.72rem; font-family:var(--font-mono); color:var(--text-subtle); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:2px;">BPM Range</div>
-              <div style="font-size:0.9rem; color:var(--text-muted);">125 – 137</div>
+              <div class="about-sidebar__label">BPM Range</div>
+              <div class="about-sidebar__value">125 – 137</div>
             </div>
             <div>
-              <div style="font-size:0.72rem; font-family:var(--font-mono); color:var(--text-subtle); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:2px;">Sequencer</div>
-              <div style="font-size:0.9rem; color:var(--text-muted);">Akai Force</div>
+              <div class="about-sidebar__label">Sequencer</div>
+              <div class="about-sidebar__value">Akai Force</div>
             </div>
             <div>
-              <div style="font-size:0.72rem; font-family:var(--font-mono); color:var(--text-subtle); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:2px;">Primary Synth</div>
-              <div style="font-size:0.9rem; color:var(--text-muted);">Analog Synthesisers</div>
+              <div class="about-sidebar__label">Primary Synth</div>
+              <div class="about-sidebar__value">Analog Synthesisers</div>
             </div>
           </div>
         </div>
@@ -350,9 +350,12 @@
       x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }
     ctx.stroke();
+    const bgC = document.documentElement.getAttribute('data-theme') === 'light' ? '244,244,244' : '13,13,13';
     const grad = ctx.createLinearGradient(0, 0, W, 0);
-    grad.addColorStop(0, 'rgba(13,13,13,1)'); grad.addColorStop(0.07, 'rgba(13,13,13,0)');
-    grad.addColorStop(0.93, 'rgba(13,13,13,0)'); grad.addColorStop(1, 'rgba(13,13,13,1)');
+    grad.addColorStop(0,    `rgba(${bgC},1)`);
+    grad.addColorStop(0.07, `rgba(${bgC},0)`);
+    grad.addColorStop(0.93, `rgba(${bgC},0)`);
+    grad.addColorStop(1,    `rgba(${bgC},1)`);
     ctx.fillStyle = grad; ctx.fillRect(0, 0, W, H);
     phase += 0.035; requestAnimationFrame(draw);
   }());

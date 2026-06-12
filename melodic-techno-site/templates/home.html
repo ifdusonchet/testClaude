@@ -237,21 +237,19 @@
   ══════════════════════════════════════════════════════ -->
 <section class="section" style="border-top:1px solid var(--bg-border);">
   <div class="container">
-    <div class="manifesto-layout">
-      <div>
-        <p class="section-label">The Story</p>
-        <h2 style="margin-bottom:20px; line-height:1.15;">
-          This is not just<br>a music website.
-        </h2>
-        <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8; max-width:440px;">
-          It is the story of someone who spent years learning to interpret
-          other people's creations — and is finally learning to share his own.
-          Through music, food, and a community he hopes will grow with him.
-        </p>
-        <a href="{{ url_for('about') }}" class="btn btn--outline btn--sm" style="margin-top:24px;">
-          Read the full story →
-        </a>
-      </div>
+    <div style="max-width:640px;">
+      <p class="section-label">The Story</p>
+      <h2 style="margin-bottom:20px; line-height:1.15;">
+        This is not just<br>a music website.
+      </h2>
+      <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8;">
+        It is the story of someone who spent years learning to interpret
+        other people's creations — and is finally learning to share his own.
+        Through music, food, and a community he hopes will grow with him.
+      </p>
+      <a href="{{ url_for('about') }}" class="btn btn--outline btn--sm" style="margin-top:24px;">
+        Read the full story →
+      </a>
     </div>
   </div>
 </section>
@@ -278,10 +276,10 @@
       </div>
       <div>
         <h2 class="featured-track__title">{{ featured.title }}</h2>
-        <p style="font-size:0.85rem; color:var(--text-muted); font-family:var(--font-mono); margin-bottom:16px;">
-          Source: <strong style="color:var(--text);">{{ featured.original_song }}</strong>
+        <p class="track-item__origin">
+          Source: <strong>{{ featured.original_song }}</strong>
         </p>
-        <p style="color:var(--text-muted); line-height:1.7; margin-bottom:20px;">{{ featured.process }}</p>
+        <p class="track-item__process">{{ featured.process }}</p>
         <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
           {% for tag in featured.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
           <span class="tag">{{ featured.bpm }} BPM</span>
@@ -395,12 +393,13 @@
     }
     ctx.stroke();
 
-    // Fade edges
+    // Fade edges — use page background colour so it works in both light and dark mode
+    const bgC = document.documentElement.getAttribute('data-theme') === 'light' ? '244,244,244' : '10,10,10';
     const grad = ctx.createLinearGradient(0, 0, W, 0);
-    grad.addColorStop(0,    'rgba(10,10,10,1)');
-    grad.addColorStop(0.08, 'rgba(10,10,10,0)');
-    grad.addColorStop(0.92, 'rgba(10,10,10,0)');
-    grad.addColorStop(1,    'rgba(10,10,10,1)');
+    grad.addColorStop(0,    `rgba(${bgC},1)`);
+    grad.addColorStop(0.08, `rgba(${bgC},0)`);
+    grad.addColorStop(0.92, `rgba(${bgC},0)`);
+    grad.addColorStop(1,    `rgba(${bgC},1)`);
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, W, H);
 

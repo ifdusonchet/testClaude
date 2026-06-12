@@ -2,21 +2,24 @@
 {% block title %}Downloads — {{ config.SITE_NAME }}{% endblock %}
 
 {% block content %}
-<div class="downloads-page">
+
+<!-- ── Page header ──────────────────────────────────────────── -->
+<section class="section section--tight" style="border-bottom: 1px solid var(--bg-border);">
+  <div class="container">
+    <p class="section-label">Downloads</p>
+    <h1 style="margin-bottom:12px;">Everything is yours.</h1>
+    <p class="section-lead">
+      Thank you for signing up. All content below is free to download and
+      use in your own productions. New packs are added regularly — you'll
+      get an email when they arrive.
+    </p>
+  </div>
+</section>
+
+<!-- ── Download categories ──────────────────────────────────── -->
+<section class="section">
   <div class="container">
 
-    <!-- Header -->
-    <div class="downloads-header">
-      <p class="section-label">Downloads</p>
-      <h1 style="margin-bottom:12px;">Everything is yours.</h1>
-      <p style="color:var(--text-muted); max-width:520px; line-height:1.7;">
-        Thank you for signing up. All content below is free to download and
-        use in your own productions. New packs are added regularly — you'll
-        get an email when they arrive.
-      </p>
-    </div>
-
-    <!-- ── Sound Packs ───────────────────────────────────────── -->
     {% for category_name, items in downloads.items() %}
     {% if items %}
     <div class="downloads-category">
@@ -56,5 +59,6 @@
     </div>
 
   </div>
-</div>
+</section>
+
 {% endblock %}

@@ -48,11 +48,12 @@
   --warm-surface: #f5eeea;
 }
 
-/* Headings use electric blue in light mode */
+/* Only h1/h2 get accent blue in light mode — h3/h4 stay dark to preserve hierarchy */
 [data-theme="light"] h1,
-[data-theme="light"] h2,
-[data-theme="light"] h3,
-[data-theme="light"] h4 { color: var(--accent); }
+[data-theme="light"] h2 { color: var(--accent); }
+
+/* section-label stays muted so it doesn't compete with the blue h2 above it */
+[data-theme="light"] .section-label { color: var(--text-muted); }
 
 /* Nav surface */
 [data-theme="light"] .site-header {
@@ -301,6 +302,33 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 0 0 3px var(--accent-dim);
 }
 textarea { min-height: 140px; resize: vertical; }
+
+/* ── Callout blocks ─────────────────────────────────────────── */
+/* Unified component for quotes, highlights and closing thoughts  */
+.callout {
+  border-left: 3px solid var(--accent);
+  padding: 20px 28px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 28px 0;
+}
+.callout p { color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; font-size: 1rem; }
+.callout p:last-child { margin-bottom: 0; }
+.callout p strong, .callout strong { color: var(--text); }
+
+/* Neutral: surface background — for sidebar info blocks */
+.callout--neutral { background: var(--bg-surface); }
+
+/* Tinted: faint accent wash — for artistic closing thoughts */
+.callout--tinted  { background: var(--accent-dim); border: 1px solid rgba(26,107,255,0.15); border-left: 3px solid var(--accent); }
+
+/* Manifesto-style lines (short, italic-feeling mono statements) */
+.manifesto-lines {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 2.2;
+  margin: 24px 0;
+}
 
 /* ── Cards ──────────────────────────────────────────────────── */
 .card {
@@ -767,7 +795,9 @@ textarea { min-height: 140px; resize: vertical; }
   border: 1px solid var(--bg-border);
   border-radius: var(--radius-lg);
   padding: 28px;
+  transition: border-color var(--transition), transform var(--transition);
 }
+.passion-card:hover { border-color: var(--accent); transform: translateY(-2px); }
 
 .passion-card__icon {
   font-size: 2rem;
@@ -784,6 +814,25 @@ textarea { min-height: 140px; resize: vertical; }
 }
 
 .passion-card__text { color: var(--text-muted); font-size: 0.95rem; }
+
+/* About page sidebar profile card */
+.about-sidebar {
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-top: 20px;
+}
+.about-sidebar__row { display: flex; flex-direction: column; gap: 12px; }
+.about-sidebar__label {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+.about-sidebar__value { font-size: 0.9rem; color: var(--text-muted); }
 
 /* ── GEAR ───────────────────────────────────────────────────── */
 
@@ -1034,11 +1083,11 @@ textarea { min-height: 140px; resize: vertical; }
 .gear-cat--alt .gear-cat__outro { background: rgba(26, 107, 255, 0.06); }
 
 .gear-cat__outro p {
-  font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 2.1;
-  margin-bottom: 6px;
+  line-height: 1.9;
+  margin-bottom: 10px;
 }
 .gear-cat__outro p:last-child { margin-bottom: 0; }
 
@@ -1094,6 +1143,7 @@ textarea { min-height: 140px; resize: vertical; }
 .cooking-hero {
   background: linear-gradient(180deg, var(--warm-surface, #141210) 0%, var(--bg) 100%);
   padding: 80px 0;
+  border-bottom: 1px solid var(--bg-border);
 }
 
 .recipe-grid {
