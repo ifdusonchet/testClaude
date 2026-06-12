@@ -100,6 +100,17 @@ GEAR = [
         "image": None,
     },
     {
+        "category": "Sequencer / Sampler",
+        "name": "Akai Force",
+        "description": (
+            "The brain of every live performance. The Force replaces the "
+            "traditional DAW entirely — tracks are sequenced, launched, and "
+            "mixed here in real time. It is the reason every track feels "
+            "performed rather than arranged."
+        ),
+        "image": None,
+    },
+    {
         "category": "Software",
         "name": "Ableton Live 12",
         "description": (
