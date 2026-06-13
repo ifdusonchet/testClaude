@@ -904,7 +904,7 @@ def admin_export_csv():
 @app.route("/admin/send-email", methods=["POST"])
 @admin_required
 def admin_send_email():
-    """Send a newsletter to all subscribers."""
+    """Send a newsletter to selected subscribers, or all if none are checked."""
     subject = request.form.get("subject", "").strip()
     body    = request.form.get("body", "").strip()
 
@@ -912,7 +912,12 @@ def admin_send_email():
         flash("Subject and body are both required.", "error")
         return redirect(url_for("admin_dashboard"))
 
-    recipients = db.get_subscriber_emails()
+    selected_ids = [int(i) for i in request.form.getlist("recipient_ids") if i.isdigit()]
+    if selected_ids:
+        recipients = db.get_subscriber_emails_by_ids(selected_ids)
+    else:
+        recipients = db.get_subscriber_emails()
+
     success, message = email_sender.send_newsletter(subject, body, recipients)
 
     if success:
@@ -921,6 +926,16 @@ def admin_send_email():
     else:
         flash(f"Send failed: {message}", "error")
 
+    return redirect(url_for("admin_dashboard"))
+
+
+@app.route("/admin/delete-subscriber", methods=["POST"])
+@admin_required
+def admin_delete_subscriber():
+    subscriber_id = request.form.get("subscriber_id", type=int)
+    if subscriber_id:
+        db.delete_subscriber(subscriber_id)
+        flash("Subscriber deleted.", "success")
     return redirect(url_for("admin_dashboard"))
 
 

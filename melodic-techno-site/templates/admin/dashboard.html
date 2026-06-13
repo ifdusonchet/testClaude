@@ -48,30 +48,24 @@
       </div>
     </div>
 
-    <!-- ── Send Email ──────────────────────────────────────── -->
-    <div class="admin-section">
-      <h2 class="admin-section__title">Send Email to All Subscribers</h2>
-      <form method="POST" action="{{ url_for('admin_send_email') }}" style="max-width:600px;">
-        <div class="form-group">
-          <label for="subject">Subject Line</label>
-          <input type="text" id="subject" name="subject" placeholder="New track out now…" required />
-        </div>
-        <div class="form-group">
-          <label for="body">Message Body</label>
-          <textarea id="body" name="body" placeholder="Write your message here…" required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary"
-          onclick="return confirm('Send this email to all {{ subscriber_count }} subscriber(s)?')">
-          Send to {{ subscriber_count }} subscriber{{ 's' if subscriber_count != 1 else '' }}
-        </button>
-      </form>
-    </div>
+    <!-- ── Subscriber List ───────────────────────────────────── -->
+    <!--
+      The checkboxes in this table belong to #send-form via form="send-form".
+      The delete buttons belong to their own per-row forms via form="del-N".
+      This avoids nested forms while keeping everything in the same visual block.
+    -->
 
-    <!-- ── Subscriber List ────────────────────────────────── -->
+    <!-- One hidden delete form per subscriber (outside the table) -->
+    {% for sub in subscribers %}
+    <form id="del-{{ sub.id }}" method="POST" action="{{ url_for('admin_delete_subscriber') }}">
+      <input type="hidden" name="subscriber_id" value="{{ sub.id }}" />
+    </form>
+    {% endfor %}
+
     <div class="admin-section">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
         <h2 class="admin-section__title" style="margin-bottom:0; padding-bottom:0; border-bottom:none;">
-          Subscriber List
+          Subscribers
         </h2>
         <a href="{{ url_for('admin_export_csv') }}" class="btn btn--outline btn--sm">
           Export CSV ↓
@@ -83,17 +77,30 @@
           <table class="subscriber-table">
             <thead>
               <tr>
-                <th>#</th>
+                <th style="width:36px;">
+                  <input type="checkbox" id="select-all" title="Select all" />
+                </th>
                 <th>Email</th>
                 <th>Joined</th>
+                <th style="width:80px;"></th>
               </tr>
             </thead>
             <tbody>
               {% for sub in subscribers %}
               <tr>
-                <td style="color:var(--text-subtle);">{{ sub.id }}</td>
+                <td>
+                  <input type="checkbox" name="recipient_ids" value="{{ sub.id }}"
+                         form="send-form" class="sub-checkbox" />
+                </td>
                 <td>{{ sub.email }}</td>
-                <td>{{ sub.created_at }}</td>
+                <td style="color:var(--text-subtle);">{{ sub.created_at }}</td>
+                <td>
+                  <button type="submit" form="del-{{ sub.id }}"
+                          class="btn btn--danger btn--xs"
+                          onclick="return confirm('Delete {{ sub.email }}?')">
+                    Delete
+                  </button>
+                </td>
               </tr>
               {% endfor %}
             </tbody>
@@ -106,7 +113,31 @@
       {% endif %}
     </div>
 
-    <!-- ── Email Log ──────────────────────────────────────── -->
+    <!-- ── Send Email ────────────────────────────────────────── -->
+    <div class="admin-section">
+      <h2 class="admin-section__title">Send Email</h2>
+      <form id="send-form" method="POST" action="{{ url_for('admin_send_email') }}" style="max-width:600px;">
+        <div class="form-group">
+          <label for="subject">Subject Line</label>
+          <input type="text" id="subject" name="subject" placeholder="New track out now…" required />
+        </div>
+        <div class="form-group">
+          <label for="body">Message Body</label>
+          <textarea id="body" name="body" placeholder="Write your message here…" required></textarea>
+        </div>
+        <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+          <button type="submit" class="btn btn--primary" id="send-btn"
+            onclick="return confirmSend()">
+            Send to all {{ subscriber_count }} subscriber{{ 's' if subscriber_count != 1 else '' }}
+          </button>
+          <span id="send-hint" style="font-size:0.82rem; color:var(--text-subtle);">
+            Check subscribers above to send to a selection only.
+          </span>
+        </div>
+      </form>
+    </div>
+
+    <!-- ── Email Log ─────────────────────────────────────────── -->
     <div class="admin-section">
       <h2 class="admin-section__title">Email Send Log</h2>
 
@@ -131,6 +162,46 @@
     </div>
 
   </div><!-- /admin-body -->
+
+  <script>
+  (function () {
+    const allBox  = document.getElementById('select-all');
+    const checkboxes = () => document.querySelectorAll('.sub-checkbox');
+    const sendBtn = document.getElementById('send-btn');
+    const sendHint = document.getElementById('send-hint');
+    const totalCount = {{ subscriber_count }};
+
+    function updateSendBtn() {
+      const checked = [...checkboxes()].filter(c => c.checked);
+      if (checked.length === 0) {
+        sendBtn.textContent = 'Send to all ' + totalCount + ' subscriber' + (totalCount !== 1 ? 's' : '');
+        sendHint.textContent = 'Check subscribers above to send to a selection only.';
+      } else {
+        sendBtn.textContent = 'Send to ' + checked.length + ' selected subscriber' + (checked.length !== 1 ? 's' : '');
+        sendHint.textContent = '';
+      }
+    }
+
+    allBox.addEventListener('change', function () {
+      checkboxes().forEach(c => c.checked = allBox.checked);
+      updateSendBtn();
+    });
+
+    document.addEventListener('change', function (e) {
+      if (e.target.classList.contains('sub-checkbox')) {
+        allBox.checked = [...checkboxes()].every(c => c.checked);
+        updateSendBtn();
+      }
+    });
+
+    window.confirmSend = function () {
+      const checked = [...checkboxes()].filter(c => c.checked);
+      const n = checked.length || totalCount;
+      const target = checked.length ? checked.length + ' selected subscriber' + (n !== 1 ? 's' : '') : 'all ' + totalCount + ' subscriber' + (totalCount !== 1 ? 's' : '');
+      return confirm('Send this email to ' + target + '?');
+    };
+  }());
+  </script>
 
 </body>
 </html>

@@ -79,6 +79,20 @@ def get_subscriber_emails() -> list[str]:
         return [r["email"] for r in rows]
 
 
+def get_subscriber_emails_by_ids(ids: list[int]) -> list[str]:
+    placeholders = ",".join("?" * len(ids))
+    with get_connection() as conn:
+        rows = conn.execute(
+            f"SELECT email FROM subscribers WHERE id IN ({placeholders})", ids
+        ).fetchall()
+        return [r["email"] for r in rows]
+
+
+def delete_subscriber(subscriber_id: int):
+    with get_connection() as conn:
+        conn.execute("DELETE FROM subscribers WHERE id = ?", (subscriber_id,))
+
+
 def subscriber_count() -> int:
     with get_connection() as conn:
         return conn.execute("SELECT COUNT(*) FROM subscribers").fetchone()[0]
