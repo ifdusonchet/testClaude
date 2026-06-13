@@ -598,6 +598,7 @@ RECIPES = [
             "Dust generously with unsweetened cocoa powder just before serving.",
         ],
         "filename": "tiramisu",
+        "image": "tiramisu.JPG",
     },
     {
         "name": "TheFAB's Homemade Bolognese",
@@ -632,6 +633,7 @@ RECIPES = [
             "Adjust seasoning before serving. Best with tagliatelle or pappardelle.",
         ],
         "filename": "homemade-bolognese",
+        "image": "bolognese.jpg",
     },
     {
         "name": "Beef Wellington",
@@ -666,6 +668,7 @@ RECIPES = [
             "Bake at 220°C for 25–30 minutes for medium-rare (internal temp 52°C). Rest 10 minutes before slicing.",
         ],
         "filename": "beef-wellington",
+        "image": "beef-wellington.WEBP",
     },
     {
         "name": "Indian Red Bean Pot",
@@ -703,6 +706,7 @@ RECIPES = [
             "Adjust seasoning. Serve with basmati rice and fresh coriander.",
         ],
         "filename": "indian-red-bean-pot",
+        "image": "indian-red-bean-pot.JPG",
     },
     {
         "name": "Gratin Dauphinois à la Girardet",
@@ -730,6 +734,7 @@ RECIPES = [
             "Rest for 10 minutes before serving. The gratin should hold its shape but be soft and yielding throughout.",
         ],
         "filename": "gratin-dauphinois",
+        "image": "gratin-dauphinois.AVIF",
     },
 ]
 

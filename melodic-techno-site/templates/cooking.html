@@ -129,9 +129,15 @@
         {% for recipe in recipes %}
         <div class="recipe-card">
           <div class="recipe-card__image">
-            <div class="placeholder-img" style="aspect-ratio:4/3;">
-              {{ recipe.name }} photo
-            </div>
+            {% if recipe.image %}
+              <img src="{{ url_for('static', filename='images/recipes/' + recipe.image) }}"
+                   alt="{{ recipe.name }}"
+                   style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block; border-radius:var(--radius) var(--radius) 0 0;"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="placeholder-img" style="aspect-ratio:4/3; display:none;">{{ recipe.name }} photo</div>
+            {% else %}
+              <div class="placeholder-img" style="aspect-ratio:4/3;">{{ recipe.name }} photo</div>
+            {% endif %}
           </div>
           <div class="recipe-card__body">
             <h3 class="recipe-card__name">{{ recipe.name }}</h3>
