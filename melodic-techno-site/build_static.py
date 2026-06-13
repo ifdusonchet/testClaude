@@ -94,11 +94,11 @@ def render_page(route: str, filename: str, depth: int = 0,
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(DOCS, filename), "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"  ✓  {filename}")
+    print(f"  ok  {filename}")
 
 
 def build():
-    print("Building static preview → docs/")
+    print("Building static preview -> docs/")
     clean_docs()
     copy_static()
 
@@ -109,7 +109,7 @@ def build():
     render_page("/music",     "music.html")
     render_page("/cooking",   "cooking.html")
 
-    # Downloads — soft gate (no cookie present → locked buttons + unlock modal)
+    # Downloads -- soft gate (no cookie present = locked buttons + unlock modal)
     render_page("/downloads", "downloads.html")
 
     print("\nDone. Push the docs/ folder and enable GitHub Pages.")
