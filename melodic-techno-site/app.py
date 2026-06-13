@@ -85,7 +85,7 @@ STUDIO_SECTION = {
 
 LIVE_SET_SECTION = {
     "title": "Reducing an Orchestra to Its Essence",
-    "image": None,   # e.g. "live-set.jpg"
+    "image": "Live-set.jpg",
     # text_lead: the opening question — 4 short paragraphs with left blue accent line
     "text_lead": (
         "There is, of course, one practical problem with building an orchestra of more than twenty synthesizers:\n\n"
