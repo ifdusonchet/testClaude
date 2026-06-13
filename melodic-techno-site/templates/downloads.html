@@ -39,7 +39,7 @@
 
     {% for category_name, items in downloads.items() %}
     {% if items %}
-    <div class="downloads-category">
+    <div class="downloads-category" {% if category_name == 'Recipes (PDF)' %}id="recipes"{% endif %}>
       <h2 class="downloads-category__title">{{ category_name }}</h2>
       <div class="downloads-grid">
         {% for item in items %}
