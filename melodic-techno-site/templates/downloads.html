@@ -1,23 +1,40 @@
 {% extends "base.html" %}
-{% block title %}Downloads — {{ config.SITE_NAME }}{% endblock %}
+{% block title %}Free Downloads — {{ config.SITE_NAME }}{% endblock %}
 
 {% block content %}
 
 <!-- ── Page header ──────────────────────────────────────────── -->
 <section class="section section--tight" style="border-bottom: 1px solid var(--bg-border);">
   <div class="container">
-    <p class="section-label">Downloads</p>
-    <h1 style="margin-bottom:12px;">Everything is yours.</h1>
-    <p class="section-lead">
-      Thank you for signing up. All content below is free to download and
-      use in your own productions. New packs are added regularly — you'll
-      get an email when they arrive.
-    </p>
+    <p class="section-label">Free Downloads</p>
+
+    {% if has_access %}
+      <h1 style="margin-bottom:12px;">Everything is yours.</h1>
+      <p class="section-lead">
+        Thank you for signing up. All content below is free to download and
+        use in your own productions. New packs are added regularly — you'll
+        get an email when they arrive.
+      </p>
+    {% else %}
+      <h1 style="margin-bottom:12px;">Free packs, presets &amp; MIDI —<br>yours instantly.</h1>
+      <p class="section-lead">
+        Everything you see below is free. Drop your email once and every
+        download unlocks — no spam, just a note when new packs land.
+      </p>
+      <div class="dl-stats">
+        <div class="dl-stat"><span class="dl-stat__value">144</span><span class="dl-stat__label">WAV samples</span></div>
+        <div class="dl-stat"><span class="dl-stat__value">40</span><span class="dl-stat__label">synth presets</span></div>
+        <div class="dl-stat"><span class="dl-stat__value">100%</span><span class="dl-stat__label">free to use</span></div>
+      </div>
+      <button type="button" class="btn btn--primary" data-unlock style="margin-top:28px;">
+        Unlock all downloads →
+      </button>
+    {% endif %}
   </div>
 </section>
 
 <!-- ── Download categories ──────────────────────────────────── -->
-<section class="section">
+<section class="section{% if not has_access %} downloads--locked{% endif %}">
   <div class="container">
 
     {% for category_name, items in downloads.items() %}
@@ -32,10 +49,16 @@
             <div class="download-item__name">{{ item.name }}</div>
             <div class="download-item__meta">{{ item.meta }}</div>
           </div>
-          {% if item.file %}
+
+          {% if not has_access %}
+            <!-- Locked: clicking opens the email unlock modal -->
+            <button type="button" class="btn btn--outline btn--sm download-item__lock"
+                    data-unlock aria-label="Unlock {{ item.name }}">
+              🔒
+            </button>
+          {% elif item.file %}
             <a href="{{ url_for('static', filename=item.file) }}"
-               class="btn btn--outline btn--sm"
-               download>
+               class="btn btn--outline btn--sm" download>
               ↓
             </a>
           {% else %}
@@ -61,4 +84,75 @@
   </div>
 </section>
 
+{% if not has_access %}
+<!-- ── Email unlock modal ───────────────────────────────────── -->
+<div id="unlock-modal" class="unlock-modal" hidden>
+  <div class="unlock-modal__backdrop" data-close></div>
+  <div class="unlock-modal__card" role="dialog" aria-modal="true" aria-labelledby="unlock-title">
+    <button type="button" class="unlock-modal__x" data-close aria-label="Close">×</button>
+
+    <p class="section-label" style="margin-bottom:8px;">Free Access</p>
+    <h2 id="unlock-title" style="margin-bottom:12px;">One email unlocks everything.</h2>
+    <p style="color:var(--text-muted); line-height:1.7; margin-bottom:20px;">
+      Get instant access to every pack, preset, MIDI file and recipe below.
+      I'll only email you when there's genuinely new music or sounds to grab.
+    </p>
+
+    <form class="gate-form" method="POST" action="{{ url_for('downloads') }}">
+      <!-- Signed timestamp: rejects bots that submit instantly -->
+      <input type="hidden" name="form_token" value="{{ form_token }}">
+
+      <!-- Honeypot: invisible to humans, bots tend to fill it -->
+      <div class="hp-wrap" aria-hidden="true">
+        <label for="hp_website">Website</label>
+        <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <input type="email" name="email" id="unlock-email"
+             placeholder="your@email.com" required autocomplete="email" />
+      <button type="submit" class="btn btn--primary" style="width:100%; justify-content:center;">
+        Unlock all downloads →
+      </button>
+    </form>
+
+    <p class="unlock-fine">
+      Your email is stored securely and used only for download access and
+      occasional updates from the artist. Unsubscribe any time.
+    </p>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+{% if not has_access %}
+<script>
+(function () {
+  const modal = document.getElementById('unlock-modal');
+  if (!modal) return;
+  const emailInput = document.getElementById('unlock-email');
+
+  function openModal() {
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { emailInput && emailInput.focus(); }, 50);
+  }
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('[data-unlock]').forEach(function (el) {
+    el.addEventListener('click', openModal);
+  });
+  modal.querySelectorAll('[data-close]').forEach(function (el) {
+    el.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+}());
+</script>
+{% endif %}
 {% endblock %}

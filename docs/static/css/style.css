@@ -1451,6 +1451,112 @@ textarea { min-height: 140px; resize: vertical; }
   font-family: var(--font-mono);
 }
 
+/* Locked state (soft gate) */
+.download-item__lock {
+  cursor: pointer;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.download-item__lock:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.downloads--locked .download-item { position: relative; }
+
+/* Stats row on the locked downloads header */
+.dl-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.dl-stat { display: flex; flex-direction: column; gap: 2px; }
+.dl-stat__value {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.dl-stat__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+/* ── Email unlock modal ─────────────────────────────────────── */
+.unlock-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.unlock-modal[hidden] { display: none; }
+
+.unlock-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+}
+
+.unlock-modal__card {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55);
+  animation: unlock-pop 0.18s ease-out;
+}
+@keyframes unlock-pop {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.unlock-modal__x {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--text-subtle);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+}
+.unlock-modal__x:hover { color: var(--text); }
+
+.unlock-fine {
+  font-size: 0.76rem;
+  color: var(--text-subtle);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+/* Hero "watch latest" secondary link */
+.home-hero-watch {
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+.home-hero-watch a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.home-hero-watch a:hover { color: var(--accent); }
+
 /* ── ADMIN ──────────────────────────────────────────────────── */
 .admin-page { background: #080808; min-height: 100vh; }
 

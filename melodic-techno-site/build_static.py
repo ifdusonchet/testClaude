@@ -109,7 +109,7 @@ def build():
     render_page("/music",     "music.html")
     render_page("/cooking",   "cooking.html")
 
-    # Downloads — show the gate page (no cookie present)
+    # Downloads — soft gate (no cookie present → locked buttons + unlock modal)
     render_page("/downloads", "downloads.html")
 
     print("\nDone. Push the docs/ folder and enable GitHub Pages.")

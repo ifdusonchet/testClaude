@@ -828,10 +828,14 @@ def downloads():
         response.set_cookie("dl_token", token, max_age=60 * 60 * 24 * 365, httponly=True, samesite="Lax")
         return response
 
-    if has_download_access():
-        return render_template("downloads.html", downloads=DOWNLOADS)
-
-    return render_template("downloads_gate.html", form_token=_make_form_token())
+    # Soft gate: always show the catalogue. If the visitor has no access,
+    # the download buttons are locked and clicking one reveals the email form.
+    return render_template(
+        "downloads.html",
+        downloads=DOWNLOADS,
+        has_access=has_download_access(),
+        form_token=_make_form_token(),
+    )
 
 
 @app.route("/static/downloads/recipes/<path:filename>")
