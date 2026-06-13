@@ -570,109 +570,166 @@ TRACKS = [
 
 RECIPES = [
     {
-        "name": "Slow-Braised Lamb Shoulder",
+        "name": "The Best Tiramisu in the World",
         "description": (
-            "Seven hours in the oven, pulled apart with two forks. "
-            "Built on a base of anchovies, garlic and rosemary — "
-            "flavours that disappear into the meat and become something else entirely."
+            "At least according to my friends. Passed down through an Italian love story "
+            "and undefeated through years of friendly cooking competitions, this tiramisu "
+            "is rich, light, and dangerously addictive. Try it once — and you may never "
+            "look for another recipe again."
         ),
-        "key_ingredients": ["Lamb shoulder", "Anchovies", "Rosemary", "Garlic", "Red wine"],
+        "key_ingredients": ["Mascarpone", "Savoiardi", "Espresso", "Egg yolks", "Dark rum"],
         "ingredients": [
-            "1 bone-in lamb shoulder (~2 kg)",
-            "6 anchovy fillets in oil",
-            "1 whole head of garlic, cloves separated and peeled",
-            "4 sprigs fresh rosemary",
-            "250 ml red wine",
-            "400 ml lamb or chicken stock",
+            "500 g mascarpone, at room temperature",
+            "6 egg yolks",
+            "120 g caster sugar",
+            "300 ml strong espresso, cooled",
+            "3 tbsp dark rum (or Marsala)",
+            "250 g Savoiardi (ladyfinger biscuits)",
+            "Unsweetened cocoa powder, for dusting",
+        ],
+        "steps": [
+            "Whisk egg yolks and sugar together in a large bowl until pale, thick and creamy — about 5 minutes.",
+            "Add the mascarpone and fold gently until smooth and fully combined. Do not overwork.",
+            "Mix the cooled espresso with the rum in a shallow bowl.",
+            "Dip each Savoiardo briefly (1–2 seconds per side) into the espresso. They should be moist but not falling apart.",
+            "Lay a layer of dipped biscuits in a deep dish. Cover with half the mascarpone cream.",
+            "Add a second layer of dipped biscuits, then the remaining cream.",
+            "Smooth the top. Cover and refrigerate for a minimum of 6 hours — overnight is better.",
+            "Dust generously with unsweetened cocoa powder just before serving.",
+        ],
+        "filename": "tiramisu",
+    },
+    {
+        "name": "TheFAB's Homemade Bolognese",
+        "description": (
+            "Slow cooking at its finest. Fresh tomatoes, fragrant sage, rich broth and hours "
+            "of patience transform simple ingredients into a sauce that tastes like home. "
+            "This is the kind of Bolognese that brings everyone back to the table for seconds."
+        ),
+        "key_ingredients": ["Minced beef", "Fresh tomatoes", "Sage", "Broth", "Red wine"],
+        "ingredients": [
+            "600 g minced beef (15–20% fat ideal)",
+            "800 g ripe fresh tomatoes, roughly chopped (or 2 x 400 g tins)",
+            "1 large onion, finely diced",
+            "2 carrots, finely diced",
+            "2 celery stalks, finely diced",
+            "4 cloves garlic, sliced",
+            "6 fresh sage leaves",
+            "1 small bunch fresh rosemary",
+            "150 ml dry red wine",
+            "250 ml beef or veal broth",
             "2 tbsp olive oil",
             "Salt and black pepper",
         ],
         "steps": [
-            "Preheat oven to 160°C (fan 140°C).",
-            "Score the lamb all over with a small knife. Push an anchovy fillet and a garlic clove into each cut.",
-            "Season generously with salt and pepper. Lay rosemary sprigs over the top.",
-            "Heat olive oil in a large flameproof casserole over high heat. Sear the lamb on all sides until deep brown, about 3 minutes per side.",
-            "Pour in the wine and let it bubble for 1 minute, then add the stock.",
-            "Cover tightly with a lid or foil. Transfer to the oven.",
-            "Braise for 6–7 hours until the meat falls away from the bone at the lightest touch.",
-            "Rest uncovered for 20 minutes before pulling. Reduce the braising liquid on the hob to make a sauce.",
+            "Heat olive oil in a heavy-based pot over medium-high heat. Add the onion, carrot and celery. Cook gently for 10 minutes until soft.",
+            "Add the garlic, sage and rosemary. Cook for 2 more minutes.",
+            "Increase heat to high. Add the mince and break it up well. Cook until properly browned — do not rush this step.",
+            "Pour in the wine. Let it bubble and reduce completely, about 3 minutes.",
+            "Add the tomatoes and broth. Season generously with salt and pepper.",
+            "Bring to a boil, then reduce to the lowest simmer possible. Cover partially.",
+            "Cook for 2.5 to 3 hours, stirring every 30 minutes. The sauce should be thick, dark and fragrant.",
+            "Adjust seasoning before serving. Best with tagliatelle or pappardelle.",
         ],
-        "filename": "slow-braised-lamb-shoulder",
+        "filename": "homemade-bolognese",
     },
     {
-        "name": "Pasta al Limone",
+        "name": "Beef Wellington",
         "description": (
-            "Five ingredients. Ten minutes. One of the most satisfying pasta dishes "
-            "in existence. The lemon must be unwaxed — everything depends on the zest."
+            "A dish for celebrations and special moments. Tender beef wrapped in golden pastry, "
+            "enriched with foie gras, creamy spinach and mushroom duxelles. Elegant enough to "
+            "impress your guests, generous enough to satisfy them."
         ),
-        "key_ingredients": ["Spaghetti", "Lemon", "Parmesan", "Butter", "Black pepper"],
+        "key_ingredients": ["Beef fillet", "Puff pastry", "Foie gras", "Mushroom duxelles", "Creamed spinach"],
         "ingredients": [
-            "400 g spaghetti or linguine",
-            "2 unwaxed lemons — zest of both, juice of one",
-            "80 g unsalted butter, cold and cubed",
-            "80 g Parmigiano Reggiano, finely grated",
-            "Generous amount of freshly cracked black pepper",
-            "Salt for pasta water",
+            "1 kg beef fillet, centre-cut, well-trimmed",
+            "500 g chestnut mushrooms, very finely chopped",
+            "200 g baby spinach",
+            "150 g foie gras (or smooth duck liver parfait)",
+            "2 shallots, finely minced",
+            "2 cloves garlic, minced",
+            "4 slices Parma ham",
+            "500 g all-butter puff pastry",
+            "2 egg yolks beaten with 50 ml double cream (egg wash)",
+            "1 tbsp Dijon mustard",
+            "2 tbsp olive oil",
+            "Salt, black pepper, nutmeg",
         ],
         "steps": [
-            "Cook pasta in heavily salted boiling water until 1 minute before al dente. Reserve 2 cups of pasta water.",
-            "In a wide pan over medium-low heat, melt half the butter with the lemon zest. Toast gently for 30 seconds.",
-            "Add the lemon juice and 1 cup of pasta water. Bring to a gentle simmer.",
-            "Add the drained pasta and toss constantly, adding cold butter cubes one at a time.",
-            "Add Parmesan gradually, tossing and adding splashes of pasta water to maintain a silky sauce.",
-            "Remove from heat. Add a very generous amount of black pepper. Toss once more and serve immediately.",
+            "Season the beef generously. Sear in very hot oil for 2 minutes per side until deep brown all over. Brush immediately with Dijon mustard. Chill 30 minutes.",
+            "Make the duxelles: cook mushrooms, shallot and garlic in butter over medium heat until all moisture has evaporated — about 20 minutes. Season and cool.",
+            "Wilt spinach in a pan, squeeze out all water, chop finely, season with salt and nutmeg.",
+            "Lay Parma ham on cling film, overlapping. Spread duxelles over it, then the spinach, then dot with foie gras.",
+            "Place the chilled beef at one end and roll tightly in the ham layer using the cling film. Twist ends and chill 30 minutes.",
+            "Roll out puff pastry. Unwrap the beef roll and place on pastry. Roll to encase completely, sealing edges with egg wash.",
+            "Brush all over with egg wash and score lightly. Chill 15 minutes.",
+            "Bake at 220°C for 25–30 minutes for medium-rare (internal temp 52°C). Rest 10 minutes before slicing.",
         ],
-        "filename": "pasta-al-limone",
+        "filename": "beef-wellington",
     },
     {
-        "name": "Dark Chocolate & Espresso Tart",
+        "name": "Indian Red Bean Pot",
         "description": (
-            "A tart that belongs on the same playlist as the music. "
-            "Bittersweet, dense, barely sweet. The espresso deepens the chocolate "
-            "without announcing itself."
+            "A journey through spices and slow cooking. Tender red beans, sweet tomatoes "
+            "and layers of mild, spicy and Madras curries create a comforting dish full of "
+            "warmth, colour and character. Simple ingredients, extraordinary flavours."
         ),
-        "key_ingredients": ["Dark chocolate (70%)", "Espresso", "Double cream", "Eggs", "Butter"],
+        "key_ingredients": ["Red kidney beans", "Tomatoes", "Mild curry", "Madras curry", "Spicy curry"],
         "ingredients": [
-            "For the crust: 200 g plain flour, 100 g cold butter, 30 g icing sugar, 1 egg yolk, 2 tbsp cold water",
-            "For the filling: 250 g dark chocolate (70%), 200 ml double cream, 60 ml strong espresso, 2 eggs, 1 egg yolk, 30 g caster sugar, pinch of salt",
+            "500 g red kidney beans, soaked overnight and rinsed (or 2 x 400 g tins, drained)",
+            "400 g tinned chopped tomatoes",
+            "2 medium onions, finely chopped",
+            "4 cloves garlic, minced",
+            "1 tbsp fresh ginger, grated",
+            "1 tbsp mild curry powder",
+            "1 tsp Madras curry powder",
+            "1 tsp hot curry powder",
+            "1 tsp ground cumin",
+            "1 tsp ground coriander",
+            "1/2 tsp turmeric",
+            "400 ml coconut milk",
+            "2 tbsp vegetable oil",
+            "Fresh coriander and basmati rice to serve",
+            "Salt and black pepper",
         ],
         "steps": [
-            "Make the crust: pulse flour, butter and sugar in a food processor until it resembles breadcrumbs. Add egg yolk and water; bring together. Chill 30 minutes.",
-            "Roll out and line a 23 cm tart tin. Prick the base and blind-bake at 180°C for 15 minutes, remove weights, bake 5 more minutes until golden.",
-            "Melt chocolate and cream together over a bain-marie until smooth. Remove from heat.",
-            "Stir in the espresso and salt. Let cool to room temperature.",
-            "Whisk eggs, egg yolk and sugar until combined; stir gently into the chocolate mixture.",
-            "Pour into the cooled tart shell. Bake at 160°C for 18–20 minutes — the centre should still wobble slightly.",
-            "Cool completely at room temperature, then chill 2 hours before slicing.",
+            "If using dried beans: boil in unsalted water for 10 minutes, then simmer 45–60 minutes until tender. Drain and set aside.",
+            "Heat oil in a large heavy pot. Cook onions over medium heat for 12 minutes until golden.",
+            "Add garlic and ginger. Cook 2 minutes.",
+            "Add all three curry powders, cumin, coriander and turmeric. Stir constantly for 1 minute to toast the spices.",
+            "Add tomatoes. Stir well and cook for 5 minutes until the sauce thickens and the oil separates.",
+            "Add the beans and coconut milk. Stir to combine. Season with salt and pepper.",
+            "Simmer uncovered on low heat for 25–35 minutes, stirring occasionally, until thick and fragrant.",
+            "Adjust seasoning. Serve with basmati rice and fresh coriander.",
         ],
-        "filename": "dark-chocolate-espresso-tart",
+        "filename": "indian-red-bean-pot",
     },
     {
-        "name": "Roasted Bone Marrow on Toast",
+        "name": "Gratin Dauphinois à la Girardet",
         "description": (
-            "Arguably the most satisfying thing you can eat in under 30 minutes. "
-            "Elemental. Rich. Best eaten standing up with a glass of something cold."
+            "Proof that true luxury lies in simplicity. Potatoes, cream, garlic and a touch "
+            "of nutmeg — nothing more. No cheese, no distractions. Just one of the most "
+            "comforting and irresistible dishes ever created."
         ),
-        "key_ingredients": ["Beef marrow bones", "Sourdough", "Parsley", "Capers", "Lemon"],
+        "key_ingredients": ["Waxy potatoes", "Double cream", "Garlic", "Nutmeg", "Butter"],
         "ingredients": [
-            "4 beef marrow bones, cut crosswise (~8 cm sections)",
-            "4 thick slices of good sourdough",
-            "Small handful of flat-leaf parsley, roughly chopped",
-            "1 tbsp capers, drained and roughly chopped",
-            "1 small shallot, very finely diced",
-            "Juice of half a lemon",
-            "Good flaky sea salt",
-            "Olive oil",
+            "1.2 kg waxy potatoes (Charlotte or Ratte), peeled and very thinly sliced (2 mm)",
+            "600 ml double cream",
+            "2 cloves garlic, crushed",
+            "Freshly grated nutmeg",
+            "30 g unsalted butter",
+            "Salt and white pepper",
         ],
         "steps": [
-            "Preheat oven to 230°C. Stand the bones upright on a baking tray.",
-            "Roast for 15–20 minutes until the marrow is soft, starting to bubble and pull away from the bone.",
-            "While the bones roast, mix parsley, capers, shallot and lemon juice with a little olive oil. Season.",
-            "Toast the sourdough until deeply golden.",
-            "Scoop the marrow straight onto the toast. Add a generous pinch of flaky salt.",
-            "Top with the parsley-caper salad and eat immediately.",
+            "Preheat oven to 160°C (fan 140°C). Do not wash the sliced potatoes — the starch is essential.",
+            "Gently warm the cream with the crushed garlic, a generous grating of nutmeg, salt and white pepper. Do not boil. Remove garlic.",
+            "Rub a gratin dish generously with butter. Layer the potatoes evenly, seasoning lightly between each layer.",
+            "Pour the warm seasoned cream over the potatoes. It should just reach the top layer.",
+            "Dot the surface with the remaining butter.",
+            "Bake for 1 hour 30 minutes to 1 hour 45 minutes, until the top is deeply golden and the potatoes are completely tender when pierced.",
+            "Rest for 10 minutes before serving. The gratin should hold its shape but be soft and yielding throughout.",
         ],
-        "filename": "roasted-bone-marrow",
+        "filename": "gratin-dauphinois",
     },
 ]
 
