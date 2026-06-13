@@ -45,7 +45,7 @@
       <div class="gear-narrative__photo">
         {% if studio.image %}
           <img
-            src="{{ url_for('static', filename='images/gear/' + studio.image) }}"
+            src="{{ url_for('static', filename='images/' + studio.image) }}"
             alt="The Studio"
             class="gear-narrative__img"
           />
@@ -81,7 +81,17 @@
       </div>
 
       <div class="gear-cat__hd-photo">
-        {% if cat.image %}
+        {% if cat.images is defined and cat.images %}
+          <div class="gear-cat__photo-gallery">
+            {% for img in cat.images %}
+              <img
+                src="{{ url_for('static', filename='images/gear/' + img) }}"
+                alt="{{ cat.title }} {{ loop.index }}"
+                class="gear-cat__photo-img gear-cat__photo-img--half"
+              />
+            {% endfor %}
+          </div>
+        {% elif cat.image %}
           <img
             src="{{ url_for('static', filename='images/gear/' + cat.image) }}"
             alt="{{ cat.title }}"

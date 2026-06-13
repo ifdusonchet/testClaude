@@ -56,7 +56,7 @@ db.init_db()
 
 STUDIO_SECTION = {
     "title": "Built on Curiosity",
-    "image": None,   # e.g. "studio-setup.jpg"
+    "image": "studio-setup.png",
     "text": (
         "People often ask me if I had a master plan when building this studio.\n\n"
         "The answer is simple:\n\n"
@@ -121,7 +121,7 @@ GEAR_CATEGORIES = [
         "number": "01",
         "title": "The Brain",
         "tagline": "Akai Force",
-        "image": None,   # e.g. "brain.jpg"
+        "image": "brain.jpg",
         "intro": None,
         "instruments": [
             {
@@ -150,7 +150,7 @@ GEAR_CATEGORIES = [
         "number": "02",
         "title": "The Moogs",
         "tagline": "Soul, Muscle, and Madness",
-        "image": None,   # e.g. "moogs.jpg"
+        "image": "moogs.jpg",
         "intro": "If the Akai Force is the brain of the setup, the Moogs are undoubtedly its soul.",
         "instruments": [
             {
@@ -203,7 +203,7 @@ GEAR_CATEGORIES = [
         "number": "03",
         "title": "The Greek Gang",
         "tagline": "Dreadbox",
-        "image": None,   # e.g. "greek-gang.jpg"
+        "image": "dreadbox.jpg",
         "intro": (
             "If the Moogs are refined storytellers, the Dreadbox machines are wild poets.\n\n"
             "Built in Greece and entirely analogue, these synthesizers are simpler than their American cousins. "
@@ -261,7 +261,7 @@ GEAR_CATEGORIES = [
         "number": "04",
         "title": "The Dream Weavers",
         "tagline": "Wavetable Synthesis",
-        "image": None,   # e.g. "dream-weavers.jpg"
+        "image": "wavetable.jpg",
         "intro": (
             "If analogue synthesizers are made of electricity and instinct, wavetable synthesizers are built from possibility.\n\n"
             "They bring a modern touch to the studio. Less concerned with recreating the past, they constantly ask "
@@ -341,7 +341,7 @@ GEAR_CATEGORIES = [
         "number": "05",
         "title": "The Korg Tribe",
         "tagline": "The Shape-Shifters",
-        "image": None,   # e.g. "korg-tribe.jpg"
+        "image": "korg.jpg",
         "intro": (
             "Some instruments find their voice and remain faithful to it for decades. "
             "The Korg tribe prefers transformation.\n\n"
@@ -402,7 +402,8 @@ GEAR_CATEGORIES = [
         "number": "06",
         "title": "The Outlaws",
         "tagline": "The Ones Who Refused to Behave",
-        "image": None,   # e.g. "outlaws.jpg"
+        "image": None,
+        "images": ["outlaws1.jpg", "outlaws2.jpg"],
         "intro": (
             "Every orchestra has its virtuosos. Every family has its black sheep. These are mine.\n\n"
             "The synthesizers that don't quite belong anywhere else. The rebels, the innovators, the strange "
@@ -774,7 +775,7 @@ def _verify_form_token(token, min_seconds=3, max_seconds=3600):
 def home():
     # Show the first track as the featured track on the home page
     featured = TRACKS[0] if TRACKS else None
-    return render_template("home.html", featured=featured)
+    return render_template("home.html", featured=featured, studio=STUDIO_SECTION)
 
 
 @app.route("/about")

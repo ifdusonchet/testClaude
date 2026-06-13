@@ -22,12 +22,13 @@ melodic-techno-site/
 │   ├── css/style.css       # Single CSS file — dark + light theme, full design system
 │   ├── js/main.js          # Theme toggle, mobile nav, flash auto-dismiss
 │   ├── images/
-│   │   ├── artist.jpg      # About page portrait (add to activate)
-│   │   └── gear/           # Gear page photos (see Gear Images below)
+│   │   ├── artist.jpg      # Hero portrait (home page) + about page
+│   │   ├── studio-setup.png # Studio teaser on home page + gear page
+│   │   └── gear/           # Gear page photos (brain.jpg, moogs.jpg, dreadbox.jpg, wavetable.jpg, korg.jpg, outlaws1.jpg, outlaws2.jpg)
 │   └── downloads/recipes/  # Auto-generated recipe PDFs
 └── templates/
     ├── base.html           # Shared nav (with theme toggle) + footer
-    ├── home.html           # Hero with animated Moog SVG, featured track, downloads CTA
+    ├── home.html           # Hero (artist photo), story (Moog animation), studio teaser, featured track, downloads CTA
     ├── about.html          # Artist story, Moog animation, photo column
     ├── gear.html           # Studio section, 6 gear categories, Live Set section
     ├── music.html          # Track list with YouTube embeds
@@ -77,9 +78,10 @@ Edit these dicts/strings to update site content without touching templates:
 
 ### Gear images
 Place photos in `static/images/gear/` and set the `image` key to the filename:
-- `STUDIO_SECTION["image"]` → e.g. `"studio-setup.jpg"`
-- `LIVE_SET_SECTION["image"]` → e.g. `"live-set.jpg"`
-- Per-category `image` key → e.g. `"moogs.jpg"`, `"brain.jpg"`, etc.
+- `STUDIO_SECTION["image"]` → `"studio-setup.png"` (lives in `static/images/`, **not** `gear/`)
+- `LIVE_SET_SECTION["image"]` → `None` (no image yet)
+- Per-category `image` key → `"brain.jpg"`, `"moogs.jpg"`, `"dreadbox.jpg"`, `"wavetable.jpg"`, `"korg.jpg"`
+- **Outlaws** uses `"images": ["outlaws1.jpg", "outlaws2.jpg"]` (two-column gallery) instead of a single `image` key
 
 ### LIVE_SET_SECTION text structure
 The Live Set section splits its text into two visually distinct blocks:
@@ -98,12 +100,14 @@ The Live Set section splits its text into two visually distinct blocks:
 - **Accent color** — electric blue `#1a6bff` on near-black `#0a0a0a` background.
 - **Fonts** — `Space Mono` (headings + mono labels) + `Inter` (body prose).
 - **Light/dark mode** — toggle button in nav; theme stored in `localStorage` as `'theme'`; applied via `data-theme="light"` on `<html>`. Anti-flash inline script in `<head>`. Only `h1`/`h2` turn blue in light mode; `h3`/`h4` stay dark.
-- **Moog SVG animation** — CSS in `style.css`. Home uses `wk`/`bk` ID prefixes, About uses `awk`/`abk` to avoid conflicts. Canvas waveform gradient is theme-aware (reads `data-theme` each frame).
+- **Moog SVG animation** — CSS in `style.css`. Home story section uses `wk`/`bk` ID prefixes + `waveCanvas` canvas; About uses `awk`/`abk` to avoid conflicts. Canvas waveform gradient is theme-aware (reads `data-theme` each frame).
+- **Home page layout** — Hero: text left, `artist.jpg` right. Story section: text left, animated Moog SVG right. Studio teaser: full-width `studio-setup.png` with gradient overlay and link to gear page.
 - **Bot protection** — downloads gate has honeypot field (`.hp-wrap`, CSS off-screen) + HMAC-SHA256 signed timing token (`_make_form_token` / `_verify_form_token` in `app.py`). Min 3 s / max 1 h submission window.
 - **Admin route** — `/admin`, not linked in nav. Password set via `ADMIN_PASSWORD` env var, hashed with Werkzeug on startup.
 - **Email gate** — downloads page requires email signup; access token stored in cookie `dl_token` (1 year expiry).
 - **GitHub Pages** — branch `claude/melodic-techno-artist-site-egx2zy`, `/docs` folder. Run `build_static.py` and commit `docs/` after **any** template or CSS change.
-- **Artist photo** — place at `static/images/artist.jpg`; `onerror` fallback already coded in `about.html`.
+- **Artist photo** — `static/images/artist.jpg`; used in home hero and about page. `onerror` fallback coded in both templates.
+- **Home route** — passes `studio=STUDIO_SECTION` to `home.html` so the studio teaser section renders.
 
 ## Branch
 

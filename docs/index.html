@@ -93,8 +93,41 @@
         </p>
       </div>
 
-      <!-- Animated Moog Subsequent 37 -->
-      <div class="moog-wrap">
+      <!-- Artist photo -->
+      <div class="home-hero-photo-wrap">
+        <img
+          src="static/images/artist.jpg"
+          alt="TheFAB"
+          class="home-hero-photo"
+          onerror="this.parentElement.classList.add('home-hero-photo-wrap--hidden')"
+        />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     STORY + ARTIST PHOTO
+  ══════════════════════════════════════════════════════ -->
+<section class="section" style="border-top:1px solid var(--bg-border);">
+  <div class="container">
+    <div class="home-story-layout">
+      <div class="home-story-text">
+        <p class="section-label">The Story</p>
+        <h2 style="margin-bottom:20px; line-height:1.15;">
+          This is not just<br>a music website.
+        </h2>
+        <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8;">
+          It is the story of someone who spent years learning to interpret
+          other people's creations — and is finally learning to share his own.
+          Through music, food, and a community he hopes will grow with him.
+        </p>
+        <a href="about.html" class="btn btn--outline btn--sm" style="margin-top:24px;">
+          Read the full story →
+        </a>
+      </div>
+      <div class="home-story-moog">
         <svg viewBox="0 0 700 262" class="moog-synth-svg" xmlns="http://www.w3.org/2000/svg" aria-label="Animated Moog Subsequent 37 synthesiser">
           <defs>
             <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
@@ -114,71 +147,46 @@
               <stop offset="100%" stop-color="#161616"/>
             </linearGradient>
           </defs>
-
-          <!-- Body -->
           <rect x="1" y="1" width="698" height="260" rx="10" fill="url(#bg)" stroke="#1a6bff" stroke-width=".6" stroke-opacity=".35"/>
-
-          <!-- Logo strip -->
           <rect x="1" y="1" width="698" height="28" rx="10" fill="#111"/>
           <rect x="1" y="18"  width="698" height="11" fill="#111"/>
           <text x="350" y="19" text-anchor="middle" font-family="Space Mono,monospace" font-size="8.5" fill="#2a2a2a" letter-spacing="5" font-weight="700">MOOG SUBSEQUENT 37</text>
-
-          <!-- Section dividers -->
           <line x1="205" y1="33" x2="205" y2="172" stroke="#1e1e1e" stroke-width="1"/>
           <line x1="375" y1="33" x2="375" y2="172" stroke="#1e1e1e" stroke-width="1"/>
           <line x1="535" y1="33" x2="535" y2="172" stroke="#1e1e1e" stroke-width="1"/>
-
-          <!-- Section labels -->
           <text x="102" y="44" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#1a6bff" fill-opacity=".65" letter-spacing="2">OSCILLATORS</text>
           <text x="290" y="44" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#1a6bff" fill-opacity=".65" letter-spacing="2">FILTER</text>
           <text x="455" y="44" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#1a6bff" fill-opacity=".65" letter-spacing="2">ENVELOPES</text>
           <text x="617" y="44" text-anchor="middle" font-family="Space Mono,monospace" font-size="6" fill="#1a6bff" fill-opacity=".65" letter-spacing="2">LFO / AMP</text>
-
-          <!-- ── KNOB MACRO: each knob is a <g translate> with inner spinner <g> ── -->
-
-          <!-- OSC 1 row (y=80) -->
           <g transform="translate(38,80)">  <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k1"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="38"  y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">FREQ</text>
-
           <g transform="translate(76,80)">  <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k2"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="76"  y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">FINE</text>
-
           <g transform="translate(114,80)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k3"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="114" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">WAVE</text>
-
           <g transform="translate(152,80)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k4"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="152" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">LEVEL</text>
-
-          <!-- OSC 2 row (y=140) -->
           <g transform="translate(38,140)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k5"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <g transform="translate(76,140)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k6"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <g transform="translate(114,140)"><circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k7"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <g transform="translate(152,140)"><circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k8"> <line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="10" y="86"  font-family="Space Mono,monospace" font-size="6" fill="#3a3a3a" transform="rotate(-90,10,83)">OSC1</text>
           <text x="10" y="146" font-family="Space Mono,monospace" font-size="6" fill="#3a3a3a" transform="rotate(-90,10,143)">OSC2</text>
-
-          <!-- FILTER knobs (larger, highlighted) -->
           <g transform="translate(225,80)">
             <circle r="15" fill="none" stroke="#1a6bff" stroke-width="1" stroke-opacity=".45"/>
             <circle r="13" fill="url(#kga)"/>
             <g class="ks k9"><line x1="0" y1="0" x2="0" y2="-10" stroke="#1a6bff" stroke-width="2.5" stroke-linecap="round"/><circle r="3" cy="-10" fill="#1a6bff"/></g>
           </g>
           <text x="225" y="103" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#1a6bff" fill-opacity=".5">CUTOFF</text>
-
           <g transform="translate(263,80)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k10"><line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="263" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">RESO</text>
-
           <g transform="translate(301,80)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k11"><line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="301" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">DRIVE</text>
-
           <g transform="translate(339,80)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k12"><line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="339" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">KB TRK</text>
-
           <g transform="translate(244,140)"><circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k3"><line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <g transform="translate(282,140)"><circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k7"><line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="263" y="120" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#2a2a2a">ENV AMT</text>
-
-          <!-- ENVELOPES (small knobs, 2 rows of 4) -->
           <g transform="translate(395,75)"> <circle r="10" fill="none" stroke="#1a6bff" stroke-width=".7" stroke-opacity=".2"/><circle r="8.5" fill="url(#kg)"/><g class="ks k13"><line x1="0" y1="0" x2="0" y2="-6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></g></g>
           <g transform="translate(421,75)"> <circle r="10" fill="none" stroke="#1a6bff" stroke-width=".7" stroke-opacity=".2"/><circle r="8.5" fill="url(#kg)"/><g class="ks k2"> <line x1="0" y1="0" x2="0" y2="-6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></g></g>
           <g transform="translate(447,75)"> <circle r="10" fill="none" stroke="#1a6bff" stroke-width=".7" stroke-opacity=".2"/><circle r="8.5" fill="url(#kg)"/><g class="ks k5"> <line x1="0" y1="0" x2="0" y2="-6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></g></g>
@@ -188,48 +196,31 @@
           <text x="421" y="91" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#222">D</text>
           <text x="447" y="91" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#222">S</text>
           <text x="473" y="91" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#222">R</text>
-
           <g transform="translate(395,135)"><circle r="10" fill="none" stroke="#1a6bff" stroke-width=".7" stroke-opacity=".2"/><circle r="8.5" fill="url(#kg)"/><g class="ks k6"> <line x1="0" y1="0" x2="0" y2="-6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></g></g>
           <g transform="translate(421,135)"><circle r="10" fill="none" stroke="#1a6bff" stroke-width=".7" stroke-opacity=".2"/><circle r="8.5" fill="url(#kg)"/><g class="ks k11"><line x1="0" y1="0" x2="0" y2="-6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></g></g>
           <g transform="translate(447,135)"><circle r="10" fill="none" stroke="#1a6bff" stroke-width=".7" stroke-opacity=".2"/><circle r="8.5" fill="url(#kg)"/><g class="ks k14"><line x1="0" y1="0" x2="0" y2="-6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></g></g>
           <g transform="translate(473,135)"><circle r="10" fill="none" stroke="#1a6bff" stroke-width=".7" stroke-opacity=".2"/><circle r="8.5" fill="url(#kg)"/><g class="ks k4"> <line x1="0" y1="0" x2="0" y2="-6" stroke="#1a6bff" stroke-width="1.8" stroke-linecap="round"/></g></g>
           <text x="434" y="115" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#2a2a2a">AMP ENV</text>
-
-          <!-- LFO + MASTER -->
           <g transform="translate(557,80)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k15"><line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="557" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">LFO RATE</text>
-
           <g transform="translate(595,80)"> <circle r="13" fill="none" stroke="#1a6bff" stroke-width=".8" stroke-opacity=".22"/><circle r="11" fill="url(#kg)"/><g class="ks k10"><line x1="0" y1="0" x2="0" y2="-8" stroke="#1a6bff" stroke-width="2" stroke-linecap="round"/><circle r="2.5" cy="-8" fill="#1a6bff" fill-opacity=".7"/></g></g>
           <text x="595" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#2e2e2e">LFO AMT</text>
-
           <g transform="translate(638,80)"> <circle r="14" fill="none" stroke="#1a6bff" stroke-width="1" stroke-opacity=".35"/><circle r="12" fill="url(#kga)"/><g class="ks k1"><line x1="0" y1="0" x2="0" y2="-9" stroke="#1a6bff" stroke-width="2.5" stroke-linecap="round"/><circle r="2.5" cy="-9" fill="#1a6bff"/></g></g>
           <text x="638" y="99" text-anchor="middle" font-family="Space Mono,monospace" font-size="5.5" fill="#1a6bff" fill-opacity=".5">MASTER</text>
-
-          <!-- OLED display -->
           <rect x="545" y="118" width="80" height="38" rx="3" fill="#060c14" stroke="#1a6bff" stroke-width=".5" stroke-opacity=".4"/>
           <polyline points="550,137 556,128 562,146 568,128 574,146 580,128 586,146 592,128 598,146 604,128 610,137 616,137 620,137" fill="none" stroke="#1a6bff" stroke-width="1.2" stroke-opacity=".8" stroke-linecap="round" stroke-linejoin="round" class="disp-wave"/>
           <circle cx="551" cy="123" r="2.5" fill="#1a6bff" class="led1"/>
           <circle cx="559" cy="123" r="2.5" fill="#1a6bff" class="led2"/>
-
-          <!-- Accent LED strip top -->
           <rect x="320" y="32" width="70" height="2.5" rx="1.2" fill="#1a6bff" fill-opacity=".12"/>
           <rect x="320" y="32" width="24"  height="2.5" rx="1.2" fill="#1a6bff" fill-opacity=".55" class="led1"/>
-
-          <!-- ── KEYBOARD SECTION ── -->
           <rect x="1" y="177" width="698" height="84" fill="#0d0d0d"/>
           <line x1="1" y1="177" x2="699" y2="177" stroke="#1e1e1e" stroke-width="1"/>
-
-          <!-- Pitch wheel -->
           <rect x="10" y="186" width="30" height="68" rx="15" fill="#111" stroke="#252525" stroke-width="1"/>
           <rect x="10" y="207" width="30" height="22" rx="4" fill="#181818" stroke="#1a6bff" stroke-width=".6" stroke-opacity=".4" class="pitch-thumb"/>
           <text x="25" y="260" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#1e1e1e">PB</text>
-
-          <!-- Mod wheel -->
           <rect x="48" y="186" width="30" height="68" rx="15" fill="#111" stroke="#252525" stroke-width="1"/>
           <rect x="48" y="222" width="30" height="22" rx="4" fill="#181818" stroke="#1a6bff" stroke-width=".6" stroke-opacity=".25"/>
           <text x="63" y="260" text-anchor="middle" font-family="Space Mono,monospace" font-size="5" fill="#1e1e1e">MOD</text>
-
-          <!-- White keys (22 × 25px, start x=88) -->
           <rect id="wk0"  x="88"  y="180" width="24" height="74" rx="2" fill="url(#wkGrad)" stroke="#222" stroke-width=".5"/>
           <rect id="wk1"  x="113" y="180" width="24" height="74" rx="2" fill="url(#wkGrad)" stroke="#222" stroke-width=".5"/>
           <rect id="wk2"  x="138" y="180" width="24" height="74" rx="2" fill="url(#wkGrad)" stroke="#222" stroke-width=".5"/>
@@ -252,60 +243,50 @@
           <rect id="wk19" x="563" y="180" width="24" height="74" rx="2" fill="url(#wkGrad)" stroke="#222" stroke-width=".5"/>
           <rect id="wk20" x="588" y="180" width="24" height="74" rx="2" fill="url(#wkGrad)" stroke="#222" stroke-width=".5"/>
           <rect id="wk21" x="613" y="180" width="24" height="74" rx="2" fill="url(#wkGrad)" stroke="#222" stroke-width=".5"/>
-
-          <!-- Black keys (16px wide; pos = white_key_x + 17) -->
-          <!-- Octave C2 -->
           <rect id="bk0"  x="105" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk1"  x="130" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk2"  x="180" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk3"  x="205" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk4"  x="230" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
-          <!-- Octave C3 -->
           <rect id="bk5"  x="280" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk6"  x="305" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk7"  x="355" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk8"  x="380" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk9"  x="405" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
-          <!-- Octave C4 -->
           <rect id="bk10" x="455" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk11" x="480" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk12" x="530" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk13" x="555" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
           <rect id="bk14" x="580" y="180" width="16" height="46" rx="2" fill="#080808" stroke="#111" stroke-width=".5"/>
-
-          <!-- Moog logo (subtle) -->
           <text x="660" y="250" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" font-weight="700" fill="#1a1a1a" letter-spacing="1">MOOG</text>
         </svg>
-
-        <!-- Waveform canvas sits below the synth -->
         <canvas id="waveCanvas" class="moog-waveform-canvas" width="700" height="48"></canvas>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     MANIFESTO STRIP
+     STUDIO PHOTO TEASER
   ══════════════════════════════════════════════════════ -->
-<section class="section" style="border-top:1px solid var(--bg-border);">
-  <div class="container">
-    <div style="max-width:640px;">
-      <p class="section-label">The Story</p>
-      <h2 style="margin-bottom:20px; line-height:1.15;">
-        This is not just<br>a music website.
-      </h2>
-      <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8;">
-        It is the story of someone who spent years learning to interpret
-        other people's creations — and is finally learning to share his own.
-        Through music, food, and a community he hopes will grow with him.
-      </p>
-      <a href="about.html" class="btn btn--outline btn--sm" style="margin-top:24px;">
-        Read the full story →
+
+<section class="section home-studio-section" style="border-top:1px solid var(--bg-border); padding-top:0; padding-bottom:0;">
+  <div class="home-studio-photo-wrap">
+    <img
+      src="static/images/studio-setup.png"
+      alt="The Studio"
+      class="home-studio-img"
+    />
+    <div class="home-studio-overlay">
+      <p class="section-label" style="color:rgba(255,255,255,0.6);">The Studio</p>
+      <h2 style="color:#fff; margin-bottom:16px;">Built on Curiosity</h2>
+      <a href="gear.html" class="btn btn--outline btn--sm" style="border-color:rgba(255,255,255,0.4); color:#fff;">
+        Explore the gear →
       </a>
     </div>
   </div>
 </section>
+
 
 <!-- ══════════════════════════════════════════════════════
      LATEST TRACK
