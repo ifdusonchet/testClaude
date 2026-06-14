@@ -739,19 +739,17 @@ RECIPES = [
 ]
 
 DOWNLOADS = {
+    "High Resolution Songs": [
+        {"name": "Matriarche Requiem", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
+        {"name": "Jeunesse lève-toi !", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
+        {"name": "Tee", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
+        {"name": "Revolution", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
+        {"name": "Wicked Game", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
+    ],
     "Sound Packs": [
         {"name": "Dark Pads Vol. 1", "meta": "WAV · 48 samples · 180 MB", "icon": "🎛️", "file": None},
         {"name": "Moog Bass Textures", "meta": "WAV · 32 samples · 95 MB", "icon": "🎛️", "file": None},
         {"name": "Atmospheric Foley", "meta": "WAV · 64 samples · 240 MB", "icon": "🎛️", "file": None},
-    ],
-    "MIDI Files": [
-        {"name": "Requiem in 128 — Full Arrangement", "meta": "MIDI · 4 tracks", "icon": "🎹", "file": None},
-        {"name": "Intermezzo — Main Melody", "meta": "MIDI · 1 track", "icon": "🎹", "file": None},
-        {"name": "Chord Progressions Pack", "meta": "MIDI · 12 patterns", "icon": "🎹", "file": None},
-    ],
-    "Synth Presets": [
-        {"name": "Moog Subsequent 37 — Dark Basses", "meta": "Sysex · 24 presets", "icon": "🔊", "file": None},
-        {"name": "Jupiter-Xm — Pad Landscapes", "meta": "Tone file · 16 presets", "icon": "🔊", "file": None},
     ],
     "Recipes (PDF)": [],  # populated dynamically below
 }
