@@ -740,11 +740,7 @@ RECIPES = [
 
 DOWNLOADS = {
     "High Resolution Songs": [
-        {"name": "Matriarche Requiem",   "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
         {"name": "Jeunesse lève-toi !",  "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Jeunesse Leve toi.MP3"},
-        {"name": "Tee",                  "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
-        {"name": "Revolution",           "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
-        {"name": "Wicked Game",          "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
         {"name": "Camarade Président",   "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Camarade Président.mp3"},
         {"name": "Fin des mondes",       "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/fin des mondes.mp3"},
         {"name": "Give Me Five Jack",    "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Give me Five Jack.mp3"},
