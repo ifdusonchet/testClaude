@@ -740,16 +740,19 @@ RECIPES = [
 
 DOWNLOADS = {
     "High Resolution Songs": [
-        {"name": "Matriarche Requiem", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
-        {"name": "Jeunesse lève-toi !", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
-        {"name": "Tee", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
-        {"name": "Revolution", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
-        {"name": "Wicked Game", "meta": "WAV · 24-bit · 48 kHz", "icon": "🎵", "file": None},
+        {"name": "Matriarche Requiem",   "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
+        {"name": "Jeunesse lève-toi !",  "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Jeunesse Leve toi.MP3"},
+        {"name": "Tee",                  "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
+        {"name": "Revolution",           "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
+        {"name": "Wicked Game",          "meta": "MP3 · Coming soon",  "icon": "🎵", "file": None},
+        {"name": "Camarade Président",   "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Camarade Président.mp3"},
+        {"name": "Fin des mondes",       "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/fin des mondes.mp3"},
+        {"name": "Give Me Five Jack",    "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Give me Five Jack.mp3"},
+        {"name": "Niagara Champ Brûlé", "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Niagara champ brule.mp3"},
+        {"name": "Rochechouart",         "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Rochechouart.mp3"},
     ],
     "Sound Packs": [
-        {"name": "Dark Pads Vol. 1", "meta": "WAV · 48 samples · 180 MB", "icon": "🎛️", "file": None},
-        {"name": "Moog Bass Textures", "meta": "WAV · 32 samples · 95 MB", "icon": "🎛️", "file": None},
-        {"name": "Atmospheric Foley", "meta": "WAV · 64 samples · 240 MB", "icon": "🎛️", "file": None},
+        {"name": "Matriarche Requiem — Sound Pack", "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Matriarche requiem.mp3"},
     ],
     "Recipes (PDF)": [],  # populated dynamically below
 }
