@@ -566,6 +566,19 @@ TRACKS = [
         "youtube_id": "le0Taj6TVeQ",
         "tags": ["melodic", "melancholic", "cinematic"],
     },
+    {
+        "title": "Juliette T'es à Poil!!!",
+        "original_artist": "Original composition",
+        "original_song": "Juliette T'es à Poil!!!",
+        "process": (
+            "A bass so deep it shakes the ground and replaces the need for a kick. "
+            "This track is a journey into the dark hours of the mind — hypnotic, "
+            "heavy, and unapologetically dark."
+        ),
+        "bpm": 130,
+        "youtube_id": "OO0nx94ITSU",
+        "tags": ["dark", "hypnotic", "bass"],
+    },
 ]
 
 RECIPES = [
@@ -748,7 +761,8 @@ DOWNLOADS = {
         {"name": "Rochechouart",         "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Rochechouart.mp3"},
     ],
     "Sound Packs": [
-        {"name": "Matriarche Requiem — Sound Pack", "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Matriarche requiem.mp3"},
+        {"name": "Matriarche Requiem — Sound Pack",      "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Matriarche requiem.mp3"},
+        {"name": "Juliette T'es à Poil!!! — Sound Pack", "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Juliette.mp3"},
     ],
     "Recipes (PDF)": [],  # populated dynamically below
 }
