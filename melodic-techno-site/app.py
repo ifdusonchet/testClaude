@@ -485,6 +485,19 @@ GEAR_CATEGORIES = [
 
 TRACKS = [
     {
+        "title": "Juliette T'es à Poil!!!",
+        "original_artist": "Original composition",
+        "original_song": "Juliette T'es à Poil!!!",
+        "process": (
+            "A bass so deep it shakes the ground and replaces the need for a kick. "
+            "This track is a journey into the dark hours of the mind — hypnotic, "
+            "heavy, and unapologetically dark."
+        ),
+        "bpm": 130,
+        "youtube_id": "OO0nx94ITSU",
+        "tags": ["dark", "hypnotic", "bass"],
+    },
+    {
         "title": "Matriarche Requiem",
         "original_artist": "Original composition",
         "original_song": "Moog Matriarch · vocal laments",
@@ -565,19 +578,6 @@ TRACKS = [
         "bpm": 125,
         "youtube_id": "le0Taj6TVeQ",
         "tags": ["melodic", "melancholic", "cinematic"],
-    },
-    {
-        "title": "Juliette T'es à Poil!!!",
-        "original_artist": "Original composition",
-        "original_song": "Juliette T'es à Poil!!!",
-        "process": (
-            "A bass so deep it shakes the ground and replaces the need for a kick. "
-            "This track is a journey into the dark hours of the mind — hypnotic, "
-            "heavy, and unapologetically dark."
-        ),
-        "bpm": 130,
-        "youtube_id": "OO0nx94ITSU",
-        "tags": ["dark", "hypnotic", "bass"],
     },
 ]
 
