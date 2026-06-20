@@ -749,6 +749,64 @@ RECIPES = [
         "filename": "gratin-dauphinois",
         "image": "gratin-dauphinois.AVIF",
     },
+    {
+        "name": "Pasta and Sage",
+        "description": (
+            "Such an easy dish, but full of the love of an Italian family table: good pasta, "
+            "butter, garlic, chili, pepper, and a generous handful of sage slowly warmed until "
+            "the whole kitchen smells like home."
+        ),
+        "key_ingredients": ["Pasta", "Butter", "Sage", "Garlic", "Chili"],
+        "ingredients": [
+            "400 g pasta (tagliatelle or pappardelle)",
+            "80 g unsalted butter",
+            "3 cloves garlic, sliced",
+            "1 small dried chili, crumbled",
+            "Large handful of fresh sage leaves",
+            "Freshly cracked black pepper",
+            "Salt for pasta water",
+            "Parmigiano Reggiano to serve",
+        ],
+        "steps": [
+            "Cook pasta in heavily salted boiling water until al dente. Reserve 1 cup of pasta water.",
+            "In a wide pan over medium-low heat, melt the butter gently.",
+            "Add the garlic and chili. Cook for 2 minutes without colouring.",
+            "Add the sage leaves. Let them warm slowly in the butter for 3–4 minutes until fragrant.",
+            "Add the drained pasta and toss well, adding a splash of pasta water to loosen.",
+            "Season generously with black pepper. Serve immediately with Parmigiano.",
+        ],
+        "filename": "Pasta_and_Sage",
+        "image": "Pasta and Sage.webp",
+    },
+    {
+        "name": "Tarte Fine aux Pommes",
+        "description": (
+            "A simple, elegant apple tart to finish a meal: thin slices of apple, butter, sugar, "
+            "cream, cinnamon and a whisper of nutmeg, baked until the apples are soft and the top "
+            "is gently caramelised."
+        ),
+        "key_ingredients": ["Apples", "Butter", "Sugar", "Cream", "Cinnamon"],
+        "ingredients": [
+            "1 sheet all-butter puff pastry",
+            "3–4 eating apples, peeled, cored and very thinly sliced",
+            "40 g unsalted butter, melted",
+            "3 tbsp caster sugar",
+            "3 tbsp double cream",
+            "1 tsp ground cinnamon",
+            "A pinch of freshly grated nutmeg",
+        ],
+        "steps": [
+            "Preheat oven to 190°C. Line a baking tray with parchment.",
+            "Lay the puff pastry sheet on the tray. Score a 1 cm border around the edge without cutting through.",
+            "Brush the centre with half the melted butter.",
+            "Arrange apple slices in overlapping rows across the pastry.",
+            "Mix the remaining butter, cream, sugar, cinnamon and nutmeg. Spoon evenly over the apples.",
+            "Bake for 25–30 minutes until the pastry is golden and the apples are soft and caramelised at the edges.",
+            "Rest 5 minutes before slicing. Serve warm, with crème fraîche if you like.",
+        ],
+        "filename": "Tarte_Fine_aux_Pommes",
+        "image": "Tarte Fine aux Pommes.webp",
+    },
 ]
 
 DOWNLOADS = {
