@@ -113,6 +113,22 @@
       {% endif %}
     </div>
 
+    <!-- ── Import Subscribers ──────────────────────────────────── -->
+    <div class="admin-section">
+      <h2 class="admin-section__title">Import Subscribers from CSV</h2>
+      <p style="color:var(--text-subtle); font-size:0.88rem; margin-bottom:16px;">
+        Upload a CSV file with one email address per row (or per column).
+        Duplicates are detected automatically — only new addresses are added.
+      </p>
+      <form method="POST" action="{{ url_for('admin_import_subscribers') }}"
+            enctype="multipart/form-data"
+            style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <input type="file" name="csv_file" accept=".csv"
+               style="font-size:0.88rem; color:var(--text-muted);" required />
+        <button type="submit" class="btn btn--outline btn--sm">Import →</button>
+      </form>
+    </div>
+
     <!-- ── Send Email ────────────────────────────────────────── -->
     <div class="admin-section">
       <h2 class="admin-section__title">Send Email</h2>

@@ -155,3 +155,26 @@ def log_email_send(subject: str, body: str, recipient_count: int):
 def get_email_logs():
     with get_connection() as conn:
         return _exec(conn, "SELECT * FROM email_logs ORDER BY sent_at DESC")
+
+
+# ── CSV import helper ─────────────────────────────────────────────────────────
+
+def bulk_import_subscribers(emails: list[str]) -> dict:
+    """
+    Import a deduplicated list of emails. Skips any that already exist.
+    Returns {"imported": int, "skipped": int}.
+    """
+    imported = 0
+    skipped = 0
+    with get_connection() as conn:
+        for email in emails:
+            existing = _exec_one(conn, f"SELECT id FROM subscribers WHERE email = {P}", (email,))
+            if existing:
+                skipped += 1
+            else:
+                token = secrets.token_urlsafe(32)
+                _exec(conn, f"INSERT INTO subscribers (email, token) VALUES ({P}, {P})", (email, token))
+                imported += 1
+        if DATABASE_URL:
+            conn.commit()
+    return {"imported": imported, "skipped": skipped}

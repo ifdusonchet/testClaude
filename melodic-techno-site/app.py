@@ -1074,6 +1074,50 @@ def admin_delete_subscriber():
     return redirect(url_for("admin_dashboard"))
 
 
+@app.route("/admin/import-subscribers", methods=["POST"])
+@admin_required
+def admin_import_subscribers():
+    import csv
+    import io
+
+    file = request.files.get("csv_file")
+    if not file or not file.filename:
+        flash("No file selected.", "error")
+        return redirect(url_for("admin_dashboard"))
+
+    try:
+        stream = io.StringIO(file.stream.read().decode("utf-8-sig"))
+    except UnicodeDecodeError:
+        flash("Could not read file — please save it as UTF-8 CSV.", "error")
+        return redirect(url_for("admin_dashboard"))
+
+    emails = []
+    invalid = 0
+    for row in csv.reader(stream):
+        for cell in row:
+            value = cell.strip().lower()
+            if not value:
+                continue
+            if "@" in value and "." in value.split("@")[-1]:
+                emails.append(value)
+            else:
+                invalid += 1
+
+    if not emails:
+        flash("No valid email addresses found in the file.", "error")
+        return redirect(url_for("admin_dashboard"))
+
+    # Deduplicate within the file itself before hitting the database
+    emails = list(dict.fromkeys(emails))
+
+    result = db.bulk_import_subscribers(emails)
+    msg = f"Import complete — {result['imported']} added, {result['skipped']} already existed"
+    if invalid:
+        msg += f", {invalid} invalid lines skipped"
+    flash(msg, "success")
+    return redirect(url_for("admin_dashboard"))
+
+
 # ══════════════════════════════════════════════════════════════
 # ENTRY POINT
 # ══════════════════════════════════════════════════════════════
