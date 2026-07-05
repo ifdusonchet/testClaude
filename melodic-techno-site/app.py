@@ -485,15 +485,34 @@ GEAR_CATEGORIES = [
 
 TRACKS = [
     {
+        "title": "Follow Me...",
+        "original_artist": "Original composition",
+        "original_song": "Follow Me...",
+        "process": (
+            "Follow Me is built for one purpose: to make the dancefloor move. "
+            "Driven by a powerful kick, an acid bassline, and a deep, earth-shaking Moog bass, "
+            "the track combines raw club energy with the melodic atmosphere that has become "
+            "TheFAB's signature. Hypnotic grooves, evolving textures, and an emotional lead "
+            "come together to create a journey that's equally at home in a dark underground "
+            "club or on a festival stage. "
+            "Turn it up, follow the groove... and let the music take control."
+        ),
+        "bpm": 130,
+        "youtube_id": "3gdVnTj2Nf8",
+        "tags": ["acid", "club", "melodic"],
+    },
+    {
         "title": "Juliette T'es à Poil!!!",
         "original_artist": "Original composition",
         "original_song": "Juliette T'es à Poil!!!",
         "process": (
-            "A bass so deep it shakes the ground and replaces the need for a kick. "
-            "This track is a journey into the dark hours of the mind — hypnotic, "
-            "heavy, and unapologetically dark."
+            "Born from a video a friend filmed on New Year's Eve, Juliette T'es à Poil!!! "
+            "channels the raw energy of that night into sound. "
+            "A bass so deep it shakes the ground and replaces the need for a kick — "
+            "this track is a journey into the dark hours of the mind, "
+            "hypnotic, heavy, and unapologetically dark."
         ),
-        "bpm": 130,
+        "bpm": 128,
         "youtube_id": "OO0nx94ITSU",
         "tags": ["dark", "hypnotic", "bass"],
     },
@@ -807,6 +826,40 @@ RECIPES = [
         "filename": "Tarte_Fine_aux_Pommes",
         "image": "Tarte Fine aux Pommes.webp",
     },
+    {
+        "name": "Lemon Ricotta Ravioli",
+        "description": (
+            "A bright, creamy and very easy pasta dish. Good lemon ricotta ravioli are enough; "
+            "all the emotion of the recipe is in the sauce: onions, garlic, butter, fresh lemon, "
+            "acidic white wine, cream, chicken broth and a tiny spoon of mild curry."
+        ),
+        "key_ingredients": ["Ricotta ravioli", "Lemon", "Cream", "White wine", "Mild curry"],
+        "ingredients": [
+            "500 g fresh ricotta ravioli",
+            "1 medium onion, finely diced",
+            "2 cloves garlic, minced",
+            "40 g unsalted butter",
+            "Zest and juice of 1 unwaxed lemon",
+            "100 ml dry white wine",
+            "150 ml double cream",
+            "100 ml chicken broth",
+            "1 tsp mild curry powder",
+            "Salt and white pepper",
+            "Fresh parsley or basil to serve",
+        ],
+        "steps": [
+            "Melt butter in a wide pan over medium heat. Add onion and cook gently for 8 minutes until soft and translucent.",
+            "Add garlic and cook for 1 more minute.",
+            "Pour in the white wine. Let it bubble and reduce by half, about 2 minutes.",
+            "Add the chicken broth, cream, lemon zest, lemon juice and curry powder. Stir well.",
+            "Simmer gently for 5 minutes until the sauce thickens slightly. Season with salt and white pepper.",
+            "Meanwhile, cook the ravioli in well-salted boiling water according to packet instructions.",
+            "Drain and add directly to the sauce. Toss gently to coat.",
+            "Serve immediately with fresh herbs and extra lemon zest if desired.",
+        ],
+        "filename": "Lemon Ricotta Ravioli",
+        "image": "ravioli-lemon-cream-sauce.jpg",
+    },
 ]
 
 DOWNLOADS = {
@@ -819,8 +872,9 @@ DOWNLOADS = {
         {"name": "Rochechouart",         "meta": "MP3 · High quality", "icon": "🎵", "file": "downloads/songs/Rochechouart.mp3"},
     ],
     "Sound Packs": [
-        {"name": "Matriarche Requiem — Sound Pack",      "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Matriarche requiem.mp3"},
-        {"name": "Juliette T'es à Poil!!! — Sound Pack", "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Juliette.mp3"},
+        {"name": "Follow Me... — Sound Pack",             "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sample Pack Follow Me.mp3"},
+        {"name": "Matriarche Requiem — Sound Pack",       "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Matriarche requiem.mp3"},
+        {"name": "Juliette T'es à Poil!!! — Sound Pack",  "meta": "MP3 · Stems & samples", "icon": "🎛️", "file": "downloads/packs/Sound Pack Juliette.mp3"},
     ],
     "Recipes (PDF)": [],  # populated dynamically below
 }
