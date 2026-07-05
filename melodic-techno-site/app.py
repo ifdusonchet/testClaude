@@ -506,8 +506,8 @@ TRACKS = [
         "original_artist": "Original composition",
         "original_song": "Juliette T'es à Poil!!!",
         "process": (
-            "Born from a video a friend filmed on New Year's Eve, Juliette T'es à Poil!!! "
-            "channels the raw energy of that night into sound. "
+            "Inspired by the reaction of a friend during a festive New Year's Eve, "
+            "Juliette T'es à Poil!!! channels the raw energy of that night into sound. "
             "A bass so deep it shakes the ground and replaces the need for a kick — "
             "this track is a journey into the dark hours of the mind, "
             "hypnotic, heavy, and unapologetically dark."
