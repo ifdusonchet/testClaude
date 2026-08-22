@@ -485,6 +485,85 @@ GEAR_CATEGORIES = [
 
 TRACKS = [
     {
+        "title": "Rodéo — Dark House Rework",
+        "original_artist": "Zazie",
+        "original_song": "Rodéo",
+        "process": (
+            "\"C'est la vie, pas le paradis…\"\n\n"
+            "Here is my electronic rework of \"Rodéo\" by Zazie — a song I've always loved for "
+            "its raw, dark and powerful vision of life: you fall, you get back up, you lose "
+            "control… and the ride goes on.\n\n"
+            "For this version, I wanted to keep the strength and emotion of the original song "
+            "while taking it into TheFAB universe: a groovy 128 BPM ride driven by massive "
+            "analog basses from the Moog Subsequent 37 and Moog Matriarch, hypnotic synths "
+            "and a powerful electronic beat.\n\n"
+            "Dark, melodic, groovy and slightly out of control.\n\n"
+            "Welcome to the rodeo."
+        ),
+        "bpm": 128,
+        "youtube_id": "HB4tTHGGmpM",
+        "tags": ["dark", "groovy", "moog"],
+    },
+    {
+        "title": "All in You — Melodic Techno Remix",
+        "original_artist": "Synapson",
+        "original_song": "All in You",
+        "process": (
+            "Some songs are not just melodies; they are memories.\n\n"
+            "A summer afternoon, smiles by the water, friends becoming family, and those "
+            "fleeting moments that somehow stay with us forever.\n\n"
+            "Through hypnotic synths, deep analog textures and driving melodic rhythms, "
+            "TheFAB transforms All In You into a melodic version.\n\n"
+            "Because sometimes, the places we seek are already within us. "
+            "The light, the memories, the love, the feeling of belonging…\n\n"
+            "It's all in you.\n\n"
+            "Close your eyes. Follow the melody. Remember the people who made you who you are."
+        ),
+        "bpm": 130,
+        "youtube_id": "D6Ukhn4XAEY",
+        "tags": ["melodic", "memories", "summer"],
+    },
+    {
+        "title": "Manitoumani — TheFAB House Rework",
+        "original_artist": "M",
+        "original_song": "Manitoumani",
+        "process": (
+            "Under a purple sun, where the sky melts into endless shades of violet, a tribe gathers.\n\n"
+            "Barefoot souls, smiling faces, hands reaching for the light. "
+            "Ancient rhythms rise from the earth while warm house grooves carry them into the night.\n\n"
+            "This rework of Manitoumani is an invitation to let go, to dance without fear, and "
+            "to celebrate the simple joy of being together.\n\n"
+            "A journey where tribal percussion meets melodic textures, where friendship becomes "
+            "rhythm and every heartbeat joins the same pulse.\n\n"
+            "For a few precious moments, there are no strangers, no worries, no tomorrow. "
+            "Only music. Only movement. Only joy.\n\n"
+            "A purple sun above us. Friends around us. And the feeling that the world is exactly "
+            "where it should be."
+        ),
+        "bpm": 128,
+        "youtube_id": "jLu5IgDaXno",
+        "tags": ["tribal", "house", "melodic"],
+    },
+    {
+        "title": "Cortisone — Melodic Techno Rework",
+        "original_artist": "Fauste",
+        "original_song": "Cortisone",
+        "process": (
+            "\"Cortisone\" is my melodic techno reinterpretation of the beautiful song by Fauste, "
+            "a talented young Swiss artist.\n\n"
+            "With this rework, I wanted to preserve the emotion and vulnerability of the original "
+            "lyrics while taking the song into a deep, cinematic electronic universe built around "
+            "analog synthesizers, atmospheric textures, powerful basslines and hypnotic grooves.\n\n"
+            "This isn't just a remix — it's a complete reinterpretation that transforms an intimate "
+            "song into an immersive melodic techno journey.\n\n"
+            "If you enjoy artists like Anyma, Tale Of Us, ARTBAT, Ben Böhmer, Massano, "
+            "Stephan Bodzin or emotional melodic techno in general, I hope you'll enjoy this version."
+        ),
+        "bpm": 128,
+        "youtube_id": "SRCiZrFoNs8",
+        "tags": ["dark", "cinematic", "melodic techno"],
+    },
+    {
         "title": "Follow Me...",
         "original_artist": "Original composition",
         "original_song": "Follow Me...",
